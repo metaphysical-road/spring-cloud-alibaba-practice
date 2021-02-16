@@ -18,6 +18,9 @@
 
     <modules>
         <module>实例2</module>
+        <module>实例3</module>
+        <module>实例4</module>
+        <module>实例5</module>
     </modules>
 
     <properties>
@@ -40,6 +43,12 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-logging</artifactId>
+                <version>${spring-boot.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-test</artifactId>
                 <version>${spring-boot.version}</version>
             </dependency>
 

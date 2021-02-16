@@ -14,6 +14,7 @@
     <version>1.0.0.release</version>
     <packaging>jar</packaging>
     <name>实例2</name>
+    <description>实例2：搭建SSM开发环境</description>
 
     <dependencies>
         <dependency>
