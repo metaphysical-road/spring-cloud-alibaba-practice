@@ -13,11 +13,11 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 10.0.23.123:8848,10.0.23.123:8847,10.0.23.123:8846
+        server-addr: 192.168.1.79:8848,192.168.1.79:8847,192.168.1.79:8846
         namespace: c7ba173f-29e5-4c58-ae78-b102be11c4f9
         group: example12
       config:
-        server-addr: 10.0.23.123:8848,10.0.23.123:8847,10.0.23.123:8846
+        server-addr: 192.168.1.79:8848,192.168.1.79:8847,192.168.1.79:8846
         group: example12
         namespace: c7ba173f-29e5-4c58-ae78-b102be11c4f9
         extension-configs:

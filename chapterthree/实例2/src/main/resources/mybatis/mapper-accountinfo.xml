@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.springbootMybatis.system.dao.UserDao" >
+    <resultMap id="resultMapping" type="com.alibaba.cloud.youxia.dao.AccountinfoDO">
+        <id column="id" jdbcType="INTEGER" property="id"></id>
+        <result column="account_name" jdbcType="VARCHAR" property="accountName"></result>
+        <result column="desc" jdbcType="VARCHAR" property="desc"></result>
+    </resultMap>
+    
+    <select id="getAllAccountinfo" resultMap="resultMapping">
+       select * from account_info where id>0;
+    </select>
+
+</mapper>

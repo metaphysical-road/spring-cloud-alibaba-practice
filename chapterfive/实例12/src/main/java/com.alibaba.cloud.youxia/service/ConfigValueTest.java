@@ -18,7 +18,6 @@ public class ConfigValueTest{
     @PostConstruct
     public void init() {
         String name = orderService.getOrderInfo();
-        System.out.println(name);
         ConfigValueThread configValueThread=new ConfigValueThread();
         configValueThread.setConfig(config);
         Executors.newCachedThreadPool().submit(configValueThread);

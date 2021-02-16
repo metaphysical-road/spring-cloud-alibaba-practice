@@ -9,7 +9,7 @@ public class ConfigValueThread implements Runnable{
         while (true) {
             try {
                 String name = config.getName();
-                System.out.println(name);
+                System.out.println("当前Spring Name是："+name);
                 Thread.sleep(5000);
             }catch (InterruptedException e){
                 e.printStackTrace();

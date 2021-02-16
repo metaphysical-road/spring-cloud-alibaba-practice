@@ -12,6 +12,7 @@
     <description>Spring Cloud Alibaba 微服务实战派</description>
 
     <modules>
+        <module>chapterthree</module>
         <module>chapterfour</module>
         <module>chapterfive</module>
     </modules>
