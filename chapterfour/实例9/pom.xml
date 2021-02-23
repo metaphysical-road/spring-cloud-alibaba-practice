@@ -10,28 +10,32 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>example8</artifactId>
+    <artifactId>example9</artifactId>
     <groupId>com.alibaba.youxia</groupId>
     <version>1.0.0.release</version>
     <packaging>jar</packaging>
-    <name>实例8</name>
-    <description>用“SpringFramework + Nacos”开发Dubbo和Restful服务</description>
-
+    <name>实例9</name>
+    <description>实例9：用“SpringBoot + Nacos”开发Dubbo和Restful服务</description>
 
     <dependencies>
         <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-webmvc</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>com.alibaba.nacos</groupId>
-            <artifactId>nacos-spring-context</artifactId>
+            <groupId>com.alibaba.boot</groupId>
+            <artifactId>nacos-discovery-spring-boot-starter</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba.boot</groupId>
+            <artifactId>nacos-discovery-spring-boot-actuator</artifactId>
         </dependency>
     </dependencies>
 </project>
