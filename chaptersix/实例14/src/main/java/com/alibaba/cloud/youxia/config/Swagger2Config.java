@@ -18,9 +18,10 @@ import java.util.Date;
 @Configuration
 @EnableSwagger2
 public class Swagger2Config {
-    public static final String BASE_PACKAGE = "com.itunion";
-    @Value("${swagger.enable}")
-    private boolean enableSwagger;
+
+    public static final String BASE_PACKAGE = "com.alibaba.cloud.youxia";
+
+    private boolean enableSwagger=true;
 
     @Bean
     public Docket createRestApi() {
@@ -40,9 +41,8 @@ public class Swagger2Config {
                 .title("Swagger RESTful APIs")
                 .description("Swagger API 服务")
                 .termsOfServiceUrl("http://swagger.io/")
-                .contact(new Contact("Swagger", "127.0.0.1", "zhenghhgz@163.com"))
+                .contact(new Contact("Swagger", "127.0.0.1", "youxia"))
                 .version("1.0")
                 .build();
     }
-
 }

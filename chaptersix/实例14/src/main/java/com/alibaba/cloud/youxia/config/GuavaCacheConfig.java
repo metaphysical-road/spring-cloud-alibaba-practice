@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.EnableCaching;
+import org.springframework.cache.guava.GuavaCacheManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.DependsOn;
@@ -14,8 +15,10 @@ import java.util.concurrent.TimeUnit;
 @EnableCaching
 @Configuration
 public class GuavaCacheConfig {
+
     @Autowired
     private GuavaProperties guavaProperties;
+
     @Bean
     public CacheBuilder<Object, Object> cacheBuilder() {
         long maximumSize = guavaProperties.getMaximumSize();

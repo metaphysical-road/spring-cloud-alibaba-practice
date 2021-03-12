@@ -1,0 +1,39 @@
+dubbo:
+  scan:
+    base-packages: com.alibaba.cloud.youxia
+  protocol:
+    name: dubbo
+    port: 28789
+  application:
+    name: example10
+  registry:
+    address: nacos://192.168.0.123:8848;nacos://192.168.0.123:8847;nacos://192.168.0.123:8846
+    parameters:
+      namespace: c7ba173f-29e5-4c58-ae78-b102be11c4f9
+      group: example14
+
+spring:
+  application:
+    name: example14
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.0.123:8848,192.168.0.123:8847,192.168.0.123:8846
+        namespace: c7ba173f-29e5-4c58-ae78-b102be11c4f9
+        group: example10
+      config:
+        server-addr: 192.168.0.123:8848,192.168.0.123:8847,192.168.0.123:8846
+        namespace: c7ba173f-29e5-4c58-ae78-b102be11c4f9
+        group: example14
+server:
+  port: 8056
+  servlet:
+    context-path: /guavaExample14
+  tomcat:
+    accesslog:
+      enabled: true
+swagger:
+  enable: true
+

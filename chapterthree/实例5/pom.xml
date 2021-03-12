@@ -14,7 +14,7 @@
     <version>1.0.0.release</version>
     <packaging>jar</packaging>
     <name>实例5</name>
-    <description>实例5：搭建Spring Cloud Alibaba微服务开发环境</description>
+    <description>实例5：用“Spring Cloud Alibaba”实现SQL表名动态替换</description>
     <dependencies>
 
     </dependencies>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <parent>
+        <artifactId>example2</artifactId>
+        <groupId>com.alibaba.youxia</groupId>
+        <version>1.0.0.release</version>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>example2-user-api</artifactId>
+    <groupId>com.alibaba.youxia</groupId>
+    <version>1.0.0.release</version>
+    <packaging>jar</packaging>
+    <name>example2-user-api</name>
+    <description>实例2：用“Spring Cloud Alibaba”实现幂等性</description>
+    <dependencies>
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>1.1.0.Final</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>RELEASE</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
+</project>

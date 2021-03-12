@@ -14,7 +14,7 @@
     <version>1.0.0.release</version>
     <packaging>jar</packaging>
     <name>实例3</name>
-    <description>实例3：搭建Spring Boot开发环境</description>
+    <description>实例3：用“Spring Cloud Alibaba”实现乐观锁</description>
 
     <dependencies>
         <dependency>

@@ -14,7 +14,7 @@
     <version>1.0.0.release</version>
     <packaging>pom</packaging>
     <name>实例4</name>
-    <description>实例4：搭建Spring Cloud开发环境</description>
+    <description>实例4：用“Spring Cloud Alibaba”实现动态多数据源</description>
 
     <modules>
         <module>springcloud-user-client</module>

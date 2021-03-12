@@ -5,19 +5,19 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @ConfigurationProperties(prefix = "guava.cache.config")
 public class GuavaProperties {
 
-   private long maximumSize;
+    private long maximumSize;
 
-   private long maximumWeight;
+    private long maximumWeight;
 
-   private long expireAfterWriteDuration;
+    private long expireAfterWriteDuration;
 
-   private long expireAfterAccessDuration;
+    private long expireAfterAccessDuration;
 
-   private long refreshDuration;
+    private long refreshDuration;
 
-   private int initialCapacity;
+    private int initialCapacity;
 
-   private int concurrencyLevel;
+    private int concurrencyLevel;
 
     public long getMaximumSize() {
         return maximumSize;

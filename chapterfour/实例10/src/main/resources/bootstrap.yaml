@@ -7,10 +7,11 @@ dubbo:
   application:
     name: example10
   registry:
-    address: nacos://192.168.0.123:8848;nacos://192.168.0.123:8847;nacos://192.168.0.123:8846
+    address: nacos://172.17.0.36:8848;nacos://172.17.0.36:8847;nacos://172.17.0.36:8846
     parameters:
       namespace: c7ba173f-29e5-4c58-ae78-b102be11c4f9
       group: example10
+      ephemeral: false
 
 spring:
   application:
@@ -20,10 +21,11 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 192.168.0.123:8848,192.168.0.123:8847,192.168.0.123:8846
+        server-addr: 172.17.0.36:8848,172.17.0.36:8847,172.17.0.36:8846
         namespace: c7ba173f-29e5-4c58-ae78-b102be11c4f9
         group: example10
+        ephemeral: false
       config:
-        server-addr: 192.168.0.123:8848,192.168.0.123:8847,192.168.0.123:8846
+        server-addr: 172.17.0.36:8848,172.17.0.36:8847,172.17.0.36:8846
         namespace: c7ba173f-29e5-4c58-ae78-b102be11c4f9
         group: example10
