@@ -13,7 +13,7 @@
 mvn install:install-file -DgroupId=com.dingtalk.open -DartifactId=taobao-sdk-java-auto -Dversion=1.0.0 -Dpackaging=jar -Dfile=/Users/huxian/Downloads/taobao-sdk-java-auto-1.0.0.jar
 ```
 
-![help](help.png)
+![帮助](help.png)
 
 ### 3. 使用Maven打包命令，重新编译源码
 
