@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.alibaba.cloud.youxia.mapper.WarehouseMapper">
+    <resultMap id="BaseResultMap" type="com.alibaba.cloud.youxia.entity.WarehouseEntity">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="order_id" property="orderId" jdbcType="BIGINT"/>
+        <result column="good_id" property="goodId" jdbcType="BIGINT"/>
+        <result column="num" property="num" jdbcType="INTEGER"/>
+        <result column="warehouse_name" property="warehouseName" jdbcType="VARCHAR"/>
+        <result column="warehouse_id" property="warehouseId" jdbcType="VARCHAR"/>
+        <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP"/>
+        <result column="is_deleted" property="isDeleted" jdbcType="INTEGER"/>
+        <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP"/>
+        <result column="status" property="status" jdbcType="INTEGER"/>
+    </resultMap>
+    
+    <insert id="notify" parameterType="com.alibaba.cloud.youxia.entity.WarehouseEntity">
+        insert into at_warehouse (id,order_id, good_id, num,warehouse_name,warehouse_id,gmt_create,is_deleted,gmt_modified,status)
+        values (#{id}, #{orderId}, #{goodId}, #{num}, #{warehouseName},#{warehouseId},#{gmtCreate},#{isDeleted},#{gmtModified},#{status});
+    </insert>
+</mapper>

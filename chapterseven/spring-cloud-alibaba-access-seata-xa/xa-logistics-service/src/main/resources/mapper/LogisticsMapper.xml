@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.alibaba.cloud.youxia.mapper.LogisticsMapper">
+    <resultMap id="BaseResultMap" type="com.alibaba.cloud.youxia.entity.LogisticsEntity">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="order_id" property="orderId" jdbcType="BIGINT"/>
+        <result column="logistics_id" property="logisticsId" jdbcType="BIGINT"/>
+        <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP"/>
+        <result column="is_deleted" property="isDeleted" jdbcType="INTEGER"/>
+        <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP"/>
+        <result column="status" property="status" jdbcType="INTEGER"/>
+        <result column="logistics_name" property="logisticsName" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <insert id="notifyLogistics" parameterType="com.alibaba.cloud.youxia.entity.LogisticsEntity">
+        insert into at_logistics (id, order_id, logistics_id, gmt_create,is_deleted,gmt_modified,status,logistics_name)
+        values (#{id}, #{orderId}, #{logisticsId}, #{gmtCreate}, #{isDeleted},#{gmtModified},#{status},#{logisticsName});
+    </insert>
+</mapper>

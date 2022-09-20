@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>chapterfourteen</artifactId>
+        <groupId>com.alibaba.youxia</groupId>
+        <version>1.0.0.release</version>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>blue-green-publish-cloud-alibaba</artifactId>
+    <groupId>com.alibaba.youxia</groupId>
+    <name>blue-green-publish-cloud-alibaba</name>
+    <description>全链路蓝绿发布</description>
+    <packaging>pom</packaging>
+    <modules>
+        <module>blue-green-gateway-server</module>
+        <module>blue-green-good-server</module>
+        <module>blue-green-logistics-server</module>
+        <module>blue-green-order-server</module>
+        <module>blue-green-trade-server</module>
+        <module>blue-green-gateway-traffic-server</module>
+    </modules>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+
+</project>

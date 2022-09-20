@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rule>
+    <discovery>
+        <region>
+            <!-- 表示dev区域的消费端服务a，允许访问dev区域的提供端服务b -->
+            <service consumer-service-name="discovery-gray-route-trade-service-server" provider-service-name="discovery-gray-route-good-service-server" consumer-region-value="dev" provider-region-value="dev"/>
+            <!-- 表示qa区域的消费端服务a，允许访问qa区域的提供端服务b -->
+            <service consumer-service-name="discovery-gray-route-trade-service-server" provider-service-name="discovery-gray-route-good-service-server" consumer-region-value="qa" provider-region-value="qa"/>
+        </region>
+    </discovery>
+</rule>

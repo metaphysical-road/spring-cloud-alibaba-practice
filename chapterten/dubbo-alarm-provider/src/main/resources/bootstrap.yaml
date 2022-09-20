@@ -1,0 +1,35 @@
+dubbo:
+  scan:
+    base-packages: com.alibaba.cloud.youxia
+  protocol:
+    name: dubbo
+    port: 23789
+  application:
+    name: dubbo-alarm-provider
+spring:
+  application:
+    name: dubbo-alarm-provider
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        namespace: c7ba173f-29e5-4c58-ae78-b102be11c4f9
+        group: dubbo-alarm-provider
+      config:
+        password: nacos
+        enable-remote-sync-config: true
+        server-addr: 127.0.0.1:8848
+        username: nacos
+        namespace: c7ba173f-29e5-4c58-ae78-b102be11c4f9
+        group: dubbo-alarm-provider
+        name: dubbo-alarm-provider
+        file-extension: properties
+        extension-configs:
+          - data-id: dubbo-alarm-provider-test.yaml
+            group: dubbo-alarm-provider
+            namespace: c7ba173f-29e5-4c58-ae78-b102be11c4f9
+            refresh: true
+server:
+  port: 8056

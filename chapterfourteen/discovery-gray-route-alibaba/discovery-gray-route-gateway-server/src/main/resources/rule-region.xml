@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rule>
+    <discovery
+        <region>
+            <!-- 表示dev区域的消费端服务discovery-gray-route-gateway-server，允许访问dev区域的提供端服务discovery-gray-route-trade-service-server-->
+            <service consumer-service-name="discovery-gray-route-gateway-server" provider-service-name="discovery-gray-route-trade-service-server" consumer-region-value="dev" provider-region-value="dev"/>
+            <!-- 表示qa区域的消费端服务discovery-gray-route-gateway-server，允许访问qa区域的提供端服务discovery-gray-route-trade-service-server-->
+            <service consumer-service-name="discovery-gray-route-gateway-server" provider-service-name="discovery-gray-route-trade-service-server" consumer-region-value="qa" provider-region-value="qa"/>
+            <!-- 表示pre区域的消费端服务discovery-gray-route-gateway-server，允许访问pre区域的提供端服务discovery-gray-route-trade-service-server-->
+            <service consumer-service-name="discovery-gray-route-gateway-server" provider-service-name="discovery-gray-route-trade-service-server" consumer-region-value="pre" provider-region-value="pre"/>
+            <!-- 表示online区域的消费端服务discovery-gray-route-gateway-server，允许访问online区域的提供端服务discovery-gray-route-trade-service-server-->
+            <service consumer-service-name="discovery-gray-route-gateway-server" provider-service-name="discovery-gray-route-trade-service-server" consumer-region-value="online" provider-region-value="online"/>
+        </region>
+    </discovery>
+</rule>

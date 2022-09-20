@@ -1,0 +1,20 @@
+###配置两个认证账户（包括用户名和密码root/root和sharding/sharding），其中授权sharding账户访问数据库sharding_db，授权root账户访问所有的数据库
+authentication:
+  users:
+    root:
+      password: root
+    sharding:
+      password: sharding
+      authorizedSchemas: sharding_db
+###配置代理连接的其他属性，比如用executor-size配置线程连接池的大小
+props:
+  max-connections-size-per-query: 1
+  acceptor-size: 16
+  executor-size: 16
+  proxy-frontend-flush-threshold: 128
+  proxy-transaction-type: LOCAL
+  proxy-opentracing-enabled: false
+  proxy-hint-enabled: false
+  query-with-cipher-column: true
+  sql-show: true
+  check-table-metadata-enabled: false

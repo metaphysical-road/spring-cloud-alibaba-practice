@@ -1,0 +1,59 @@
+###配置数据源的名称
+schemaName: sharding_db
+###配置数据库连接的属性
+dataSourceCommon:
+  username: root
+  password: 123456huxian
+  connectionTimeoutMilliseconds: 30000
+  idleTimeoutMilliseconds: 60000
+  maxLifetimeMilliseconds: 1800000
+  maxPoolSize: 50
+  minPoolSize: 1
+  maintenanceIntervalMilliseconds: 30000
+###配置数据源
+dataSources:
+  datasource_0:
+    url: jdbc:mysql://127.0.0.1:3306/datasource_0?serverTimezone=UTC&useSSL=false
+  datasource_1:
+    url: jdbc:mysql://127.0.0.1:3306/datasource_1?serverTimezone=UTC&useSSL=false
+  datasource_2:
+    url: jdbc:mysql://127.0.0.1:3306/datasource_2?serverTimezone=UTC&useSSL=false
+###配置分库分表的规则
+rules:
+  - !SHARDING
+    tables:
+      t_order:
+        actualDataNodes: datasource_${0..2}.t_order_${0..2}
+        tableStrategy:
+          standard:
+            shardingColumn: order_id
+            shardingAlgorithmName: t_order_inline
+      t_order_item:
+        actualDataNodes: datasource_${0..2}.t_order_item_${0..2}
+        tableStrategy:
+          standard:
+            shardingColumn: order_id
+            shardingAlgorithmName: t_order_item_inline
+    bindingTables:
+      - t_order,t_order_item
+    broadcastTables:
+      - t_address
+    defaultDatabaseStrategy:
+      standard:
+        shardingColumn: order_id
+        shardingAlgorithmName: database_inline
+    defaultTableStrategy:
+      none:
+    shardingAlgorithms:
+      database_inline:
+        type: INLINE
+        props:
+          algorithm-expression: datasource_${order_id % 3}
+      t_order_inline:
+        type: INLINE
+        props:
+          algorithm-expression: t_order_${order_id % 3}
+      t_order_item_inline:
+        type: INLINE
+        props:
+          algorithm-expression: t_order_item_${order_id % 3}

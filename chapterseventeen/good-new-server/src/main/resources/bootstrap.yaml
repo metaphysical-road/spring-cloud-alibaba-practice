@@ -1,0 +1,41 @@
+dubbo:
+  scan:
+    base-packages: com.alibaba.cloud.youxia
+  protocol:
+    name: dubbo
+    port: 26712
+spring:
+  application:
+    name: good-new-server
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        namespace: c7ba173f-29e5-4c58-ae78-b102be11c4f9
+        group: data-sync
+      config:
+        server-addr: 127.0.0.1:8848
+        namespace: c7ba173f-29e5-4c58-ae78-b102be11c4f9
+        extension-configs:
+          - data-id: good-new-server
+            group: good-new-server
+            refresh: true
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/datax_write?characterEncoding=utf8&connectTimeout=1000&socketTimeout=3000&autoReconnect=true&useUnicode=true&useSSL=false&serverTimezone=UTC
+    username: root
+    password: 123456huxian
+    maximumPoolSize: 10
+    minimumIdle: 2
+    idleTimeout: 600000
+    connectionTimeout: 30000
+    maxLifetime: 1800000
+server:
+  port: 7843
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  type-aliases-package: com.alibaba.cloud.youxia.mapper
+  mapper-locations:
+    - classpath:mybatis/mapper/**/*.xml

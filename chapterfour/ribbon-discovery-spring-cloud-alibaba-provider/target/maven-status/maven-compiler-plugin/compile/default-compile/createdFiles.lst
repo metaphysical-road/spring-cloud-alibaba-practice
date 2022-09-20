@@ -1,0 +1,4 @@
+com/alibaba/cloud/youxia/controller/ProviderController.class
+com/alibaba/cloud/youxia/RibbonDiscoveryProviderApplication.class
+com/alibaba/cloud/youxia/service/impl/RibbonTestServiceImpl.class
+com/alibaba/cloud/youxia/service/impl/RibbonDiscoveryServiceImpl.class

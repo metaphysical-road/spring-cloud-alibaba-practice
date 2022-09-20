@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.alibaba.cloud.youxia.mapper.AccountMapper">
+
+   <select id="findOneByUserId" resultType="com.alibaba.cloud.youxia.pojo.AccountDO">
+       select *
+       from tcc_account
+       where user_id=#{userId}
+       limit 1
+   </select>
+
+    <update id="updateFrozen">
+        UPDATE tcc_account SET `residue`=#{residue},`frozen`=#{frozen} WHERE `user_id`=#{userId}
+    </update>
+
+    <update id="updateFrozenToUsed">
+        UPDATE tcc_account SET `frozen`=`frozen`-#{money} WHERE `user_id`=#{userId}
+    </update>
+
+    <update id="updateFrozenToResidue">
+        UPDATE tcc_account SET `frozen`=`frozen`-#{money}, `residue`=`residue`+#{money} WHERE `user_id`=#{userId}
+    </update>
+
+</mapper>

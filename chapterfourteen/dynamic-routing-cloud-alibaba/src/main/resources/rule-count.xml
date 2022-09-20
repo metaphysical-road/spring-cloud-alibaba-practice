@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rule>
+    <register>
+        <count filter-value="1">
+            <!-- 表示服务dynamic-routing-cloud-alibaba，最大实例注册数为2，全局配置值1将不起作用，以局部配置值为准 -->
+            <service service-name="dynamic-routing-cloud-alibaba" filter-value="2"/>
+        </count>
+    </register>
+</rule>

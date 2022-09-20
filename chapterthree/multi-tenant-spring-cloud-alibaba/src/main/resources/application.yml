@@ -1,0 +1,28 @@
+# DataSource Config
+#spring:
+#  datasource:
+#    driver-class-name: org.h2.Driver
+#    schema: classpath:db/schema-h2.sql
+#    data: classpath:db/data-h2.sql
+#    #url: jdbc:h2:mem:test
+#    url: jdbc:h2:~/test
+#    username: root
+#    password: test
+
+
+# Logger Config
+logging:
+  level:
+    com.alibaba.cloud.youxia: debug
+# MyBatis-Plus 配置该演示无
+spring:
+  datasource:
+    druid:
+      url: jdbc:mysql://127.0.0.1:3306/spring_cloud_alibaba_practice?characterEncoding=utf8&connectTimeout=1000&socketTimeout=3000&autoReconnect=true&useUnicode=true&useSSL=false&serverTimezone=UTC
+      password: 123456huxian
+      username: root
+      driver-class-name: com.mysql.cj.jdbc.Driver
+mybatis-plus:
+  type-aliases-package: com.alibaba.cloud.youxia.mapper
+  mapper-locations:
+    - classpath:mybatis/mapper/**/*.xml

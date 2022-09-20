@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: use-redisson-spring-cloud-alibaba
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        namespace: c7ba173f-29e5-4c58-ae78-b102be11c4f9
+    redisson:
+      config-file: classpath:redisson.yaml
+  redis:
+    host: 127.0.0.1
+    port: 6480
+    password: 12345678
+server:
+  port: 8045

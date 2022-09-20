@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rule>
+    <strategy>
+        <version>
+            {"blue-green-gateway-server":"1.0", "blue-green-trade-server":"1.0", "blue-green-order-server":"1.0",
+            "blue-green-good-server":"1.0","blue-green-logistics-server":"1.0"}
+        </version>
+    </strategy>
+</rule>

@@ -1,0 +1,47 @@
+dubbo:
+  scan:
+    base-packages: com.alibaba.cloud.youxia
+  protocol:
+    name: dubbo
+    port: 26756
+  registry:
+    address: nacos://127.0.0.1:8848
+spring:
+  application:
+    name: elasticjob-Job-trace-spring-cloud-alibaba
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        namespace: c7ba173f-29e5-4c58-ae78-b102be11c4f9
+        group: elasticjob-Job-trace-spring-cloud-alibaba
+      config:
+        server-addr: 127.0.0.1:8848
+        namespace: c7ba173f-29e5-4c58-ae78-b102be11c4f9
+        extension-configs:
+          - data-id: elasticjob.Job.trace.properties
+            group: elasticjob-Job-trace-spring-cloud-alibaba
+            refresh: true
+  datasource:
+    username: root
+    password: 123456huxian
+    url: jdbc:mysql://127.0.0.1:3306/elasticjob-job?characterEncoding=utf8&connectTimeout=1000&socketTimeout=3000&autoReconnect=true&useUnicode=true&useSSL=false&serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
+server:
+  port: 7867
+elasticjob:
+  regCenter:
+    serverLists: 127.0.0.1:2181
+    namespace: spring-cloud-alibaba-job
+  jobs:
+    elasticTraceMessageJob:
+        elasticJobClass: com.alibaba.cloud.youxia.elasticjob.ElasticTraceMessageJob
+        cron: 0/1 * * * * ?
+        shardingTotalCount: 1
+        overwrite: true
+        failover: true
+
+  tracing:
+    type: RDB

@@ -1,0 +1,34 @@
+nacos:
+  server-addr: 127.0.0.1:8848
+  namespace: c7ba173f-29e5-4c58-ae78-b102be11c4f9
+  group: use-spring-boot-access-rocketmq
+dubbo:
+  scan:
+    base-packages: com.alibaba.cloud.youxia
+  protocol:
+    name: dubbo
+    port: -1
+  registry:
+    address: nacos://127.0.0.1:8848
+spring:
+  application:
+    name: use-spring-boot-consume
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    nacos:
+      discovery:
+        server-addr: ${nacos.server-addr}
+        namespace: ${nacos.namespace}
+        group: ${nacos.group}
+      config:
+        server-addr: ${nacos.server-addr}
+        namespace: ${nacos.namespace}
+        group: ${nacos.group}
+rocketmq:
+  name-server: 127.0.0.1:9876
+  consumer:
+    group: use-spring-boot-access-rocketmq
+    topic: use-spring-boot-access-rocketmq
+
+

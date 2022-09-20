@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rule>
+    <register>
+        <blacklist filter-value="192.168">
+            <!-- 表示下面服务，不允许192.168为前缀的IP地址注册 -->
+            <service service-name="register-gray-route-order-server" filter-value="192.168"/>
+        </blacklist>
+    </register>
+</rule>

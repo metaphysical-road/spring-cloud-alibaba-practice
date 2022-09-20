@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <parent>
+        <artifactId>spring-cloud-alibaba-practice</artifactId>
+        <groupId>com.alibaba.youxia</groupId>
+        <version>1.0.0.release</version>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>chapterfour</artifactId>
+    <groupId>com.alibaba.youxia</groupId>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>use-spring-cloud-alibaba-discovery</module>
+        <module>integration-dubbo-alibaba-metadata</module>
+        <module>use-nacos-spring-boot</module>
+        <module>spring-cloud-alibaba-discovery-problem</module>
+        <module>nacos-client-spring-nacos-naming</module>
+        <module>ribbon-discovery-spring-cloud-alibaba-provider</module>
+        <module>ribbon-discovery-spring-cloud-alibaba-consumer</module>
+        <module>nacos-sync</module>
+        <module>persistence-discovery-spring-cloud-alibaba</module>
+        <module>idempotent-design-spring-cloud-alibaba</module>
+    </modules>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+</project>

@@ -1,0 +1,25 @@
+dubbo:
+  scan:
+    base-packages: com.alibaba.cloud.youxia
+  protocol:
+    name: dubbo
+    port: 28789
+  application:
+    name: skywalking-kafka-consumer
+spring:
+  application:
+    name: skywalking-kafka-consumer
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        namespace: c7ba173f-29e5-4c58-ae78-b102be11c4f9
+        group: skywalking-kafka-provider
+      config:
+        server-addr: 127.0.0.1:8848
+        namespace: c7ba173f-29e5-4c58-ae78-b102be11c4f9
+        group: skywalking-kafka-provider
+server:
+  port: 8078

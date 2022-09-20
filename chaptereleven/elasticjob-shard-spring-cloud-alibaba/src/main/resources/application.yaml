@@ -1,0 +1,36 @@
+dubbo:
+  scan:
+    base-packages: com.alibaba.cloud.youxia
+  protocol:
+    name: dubbo
+    port: 26677
+  registry:
+    address: nacos://127.0.0.1:8848
+spring:
+  application:
+    name: elasticjob-shard-spring-cloud-alibaba
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        namespace: c7ba173f-29e5-4c58-ae78-b102be11c4f9
+        group: elasticjob-shard-spring-cloud-alibaba
+server:
+  port: 7886
+  address: 127.0.0.1
+elasticjob:
+  regCenter:
+    serverLists: 127.0.0.1:2181
+    namespace: spring-cloud-alibaba-job
+  jobs:
+    elasticShardMessageJob:
+        elasticJobClass: com.alibaba.cloud.youxia.elasticjob.ElasticShardMessageJob
+        cron: 0 0/5 * * * ?
+        shardingTotalCount: 5
+        overwrite: true
+        jobShardingStrategyType: ODEVITY
+        ##jobShardingStrategyType: AVG_ALLOCATION
+        ##jobShardingStrategyType: ROUND_ROBIN
+

@@ -1,0 +1,32 @@
+dubbo:
+  scan:
+    base-packages: com.alibaba.cloud.youxia
+  protocol:
+    name: dubbo
+    port: 28789
+  application:
+    name: example10
+  registry:
+    address: nacos://127.0.0.1:8848
+    parameters:
+      namespace: c7ba173f-29e5-4c58-ae78-b102be11c4f9
+      group: access-skywalking-spring-cloud-alibaba-provider
+      ephemeral: false
+spring:
+  application:
+    name: access-skywalking-spring-cloud-alibaba-consumer
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        namespace: c7ba173f-29e5-4c58-ae78-b102be11c4f9
+        group: access-skywalking-spring-cloud-alibaba-provider
+        ephemeral: false
+      config:
+        server-addr: 127.0.0.1:8848
+        namespace: c7ba173f-29e5-4c58-ae78-b102be11c4f9
+        group: access-skywalking-spring-cloud-alibaba-provider
+server:
+  port: 8078

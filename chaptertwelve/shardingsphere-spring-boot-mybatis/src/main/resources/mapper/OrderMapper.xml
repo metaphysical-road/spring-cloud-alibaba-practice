@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.alibaba.cloud.youxia.mapper.OrderMapper">
+    <insert id="insertOrder" parameterType="com.alibaba.cloud.youxia.mapper.mybatis.entity.Order">
+        INSERT INTO t_order( id,user_id,order_name,address_id,status,order_id,is_deleted,gmt_create,gmt_modified )
+        VALUES ( #{id},#{userId},#{orderName},#{addressId},#{status},#{orderId},#{isDeleted},#{gmtCreate},#{gmtModified})
+    </insert>
+</mapper>

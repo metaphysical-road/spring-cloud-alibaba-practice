@@ -1,0 +1,15 @@
+spring:
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        group: gray-publish-trade-server
+        namespace: c7ba173f-29e5-4c58-ae78-b102be11c4f9
+        refresh-enabled: true
+        enable-remote-sync-config: true
+        file-extension: properties
+        extension-configs:
+          - data-id: gray-publish-trade-server-test.properties
+            group: gray-publish-trade-server
+            refresh: true
+            namespace: c7ba173f-29e5-4c58-ae78-b102be11c4f9

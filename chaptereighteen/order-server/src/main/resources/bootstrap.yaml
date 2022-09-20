@@ -1,0 +1,46 @@
+dubbo:
+  scan:
+    base-packages: com.alibaba.cloud.youxia
+  protocol:
+    cloud:
+    name: dubbo
+    port: 25467
+  registry:
+    address: nacos://127.0.0.1:8848
+    subscribed-services: 'good-server,distributed-uuid-server'
+spring:
+  application:
+    name: order-server
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        namespace: c7ba173f-29e5-4c58-ae78-b102be11c4f9
+        group: distributed-uuid-server
+      config:
+        server-addr: 127.0.0.1:8848
+        namespace: c7ba173f-29e5-4c58-ae78-b102be11c4f9
+        extension-configs:
+          - data-id: simulated-fault.properties
+            group: SIMULATED-FAULT
+            refresh: true
+    stream:
+      rocketmq:
+        bindings:
+          input1:
+            consumer:
+              orderly: true
+        binder:
+          name-server: 127.0.0.1:9876
+      bindings:
+        input1:
+          destination: sync-order-good-status
+          content-type: text/plain
+          group: sync-order-consumer
+server:
+  port: 7852
+
+
+

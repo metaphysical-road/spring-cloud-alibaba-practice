@@ -1,0 +1,27 @@
+server:
+  port: 28082
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: redis_limit_route
+          uri: http://127.0.0.1:28089
+          predicates:
+            - Path=/**
+          filters:
+            - name: RequestRateLimiter
+              args:
+                key-resolver: '#{@hostAddrKeyResolver}'
+                redis-rate-limiter.replenishRate: 1
+                redis-rate-limiter.burstCapacity: 2
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        namespace: c7ba173f-29e5-4c58-ae78-b102be11c4f9
+        group: use-spring-cloud-alibaba-redis-lua-gateway
+  application:
+    name: gateway-limiter
+  redis:
+    host: localhost
+    port: 6379
+    database: 0

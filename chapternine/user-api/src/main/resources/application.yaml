@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: user-api
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        namespace: c7ba173f-29e5-4c58-ae78-b102be11c4f9
+        group: gateway-dynamic-route-rule
+server:
+  port: 28089
+logging:
+  pattern:
+    level: info
+

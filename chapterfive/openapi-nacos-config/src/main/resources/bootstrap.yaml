@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: openapi-nacos-config
+server:
+  port: 8954

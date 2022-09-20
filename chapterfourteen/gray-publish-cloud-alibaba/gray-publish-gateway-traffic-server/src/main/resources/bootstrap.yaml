@@ -1,0 +1,15 @@
+spring:
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        group: gray-publish-gateway-traffic-server
+        namespace: c7ba173f-29e5-4c58-ae78-b102be11c4f9
+        refresh-enabled: true
+        extension-configs:
+          - data-id: gray-publish-gateway-traffic-server-test.yaml
+            group: gray-publish-gateway-traffic-server
+            refresh: true
+            namespace: c7ba173f-29e5-4c58-ae78-b102be11c4f9
+        enable-remote-sync-config: true
+        file-extension: properties

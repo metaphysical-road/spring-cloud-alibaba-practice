@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: use-lettuce-spring-cloud-alibaba
+  main:
+    allow-bean-definition-overriding: true
+  redis:
+    password: 12345678
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        namespace: c7ba173f-29e5-4c58-ae78-b102be11c4f9
+        group: use-lettuce-spring-cloud-alibaba
+server:
+  port: 7888
+alibaba:
+  lettuce:
+    redisUrl: redis://127.0.0.1:6482,redis://127.0.0.1:6484,redis://127.0.0.1:6486
+    password: 12345678
+

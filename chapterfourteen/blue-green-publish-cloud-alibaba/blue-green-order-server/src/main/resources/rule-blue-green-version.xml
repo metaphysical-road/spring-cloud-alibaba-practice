@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rule>
+    <strategy-release>
+        <conditions type="blue-green">
+            <!-- 蓝路由，条件expression驱动 -->
+            <condition id="blue-condition" expression="#H['a'] == '1'" version-id="blue-route"/>
+            <!-- 绿路由，条件expression驱动 -->
+            <condition id="green-condition" expression="#H['a'] == '1' and #H['b'] == '2'" version-id="green-route"/>
+            <!-- 兜底路由，条件expression驱动 -->
+            <condition id="basic-condition" expression="#H['a'] == '1' and #H['b'] == '3'" version-id="basic-route"/>
+        </conditions>
+
+        <routes>
+            <route id="blue-route" type="version">{"blue-green-gateway-server":"1.0", "blue-green-trade-server":"1.0", "blue-green-order-server":"1.0",
+                "blue-green-good-server":"1.0","blue-green-logistics-server":"1.0"}</route>
+            <route id="green-route" type="version">{"blue-green-gateway-server":"1.1", "blue-green-trade-server":"1.1", "blue-green-order-server":"1.1",
+                "blue-green-good-server":"1.1","blue-green-logistics-server":"1.1"}</route>
+            <route id="basic-route" type="version">{"blue-green-gateway-server":"1.2", "blue-green-trade-server":"1.2", "blue-green-order-server":"1.2",
+                "blue-green-good-server":"1.2","blue-green-logistics-server":"1.2"}</route>
+        </routes>
+    </strategy-release>
+</rule>

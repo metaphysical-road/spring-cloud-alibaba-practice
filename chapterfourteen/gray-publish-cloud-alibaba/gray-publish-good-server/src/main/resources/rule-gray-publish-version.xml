@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rule>
+    <strategy-release>
+        <conditions type="gray">
+            <!--灰度路由1，条件expression驱动 灰度流量10%，稳定流量90%-->
+             <condition id="gray-condition-1" expression="#H['a'] == '1'" version-id="gray-route=10;stable-route=90"/>
+            <!--灰度路由2，条件expression驱动 灰度流量20%，稳定流量80%-->
+            <condition id="gray-condition-2" expression="#H['a'] == '1' and #H['b'] == '2'" version-id="gray-route=20;stable-route=80"/>
+            <!--灰度路由3，条件expression驱动 灰度流量50%，稳定流量50%-->
+            <condition id="gray-condition-3" expression="#H['a'] == '1' and #H['b'] == '3'" version-id="gray-route=50;stable-route=50"/>
+            <!--灰度路由4，条件expression驱动 灰度流量80%，稳定流量20%-->
+            <condition id="gray-condition-4" expression="#H['a'] == '1' and #H['b'] == '4'" version-id="gray-route=80;stable-route=20"/>
+            <!--灰度路由5，条件expression驱动 灰度流量90%，稳定流量10%-->
+            <condition id="gray-condition-5" expression="#H['a'] == '1' and #H['b'] == '4'" version-id="gray-route=90;stable-route=10"/>
+            <!--灰度路由5，条件expression驱动，灰度流量100%，稳定流量0% -->
+            <condition id="gray-condition-6" expression="#H['a'] == '1' and #H['b'] == '4'" version-id="gray-route=100;stable-route=0"/>
+            <!-- 兜底路由，条件expression驱动 -->
+            <condition id="basic-condition" version-id="gray-route=0;stable-route=100"/>
+        </conditions>
+
+        <routes>
+            <!--将版本号为1.1服务设置为灰度服务-->
+            <route id="gray-route" type="version">{"gray-publish-gateway-server":"1.1", "gray-publish-trade-server":"1.1", "gray-publish-order-server":"1.1",
+                "gray-publish-good-server":"1.1","gray-publish-logistics-server":"1.1"}</route>
+            <!--将版本号为1.0服务设置为稳定服务-->
+            <route id="stable-route" type="version">{"gray-publish-gateway-server":"1.0", "gray-publish-trade-server":"1.0", "gray-publish-order-server":"1.0",
+                "gray-publish-good-server":"1.0","gray-publish-logistics-server":"1.0"}</route>
+        </routes>
+    </strategy-release>
+</rule>

@@ -1,0 +1,53 @@
+spring:
+  application:
+    name: alarm-server
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        namespace: c7ba173f-29e5-4c58-ae78-b102be11c4f9
+        extension-configs:
+          - data-id: public.redis.properties
+            group: PUBLIC
+            refresh: true
+          - data-id: alarm.properties
+            group: ALARM-SERVER
+            refresh: true
+          - data-id: nacos.alarm.properties
+            group: ALARM-SERVER
+            refresh: true
+          - data-id: nacos.alarm.phoneNumber.yaml
+            group: ALARM-SERVER
+            refresh: true
+          - data-id: skywalking.alarm.properties
+            group: ALARM-SERVER
+            refresh: true
+          - data-id: nacos.job.yaml
+            group: ALARM-SERVER
+            refresh: true
+          - data-id: skywalking.whitelist.yaml
+            group: ALARM-SERVER
+            refresh: true
+          - data-id: rocketmq.alarm.properties
+            group: ALARM-SERVER
+            refresh: true
+          - data-id: rocketmq.whitelist.yaml
+            group: ALARM-SERVER
+            refresh: true
+      discovery:
+        server-addr: 127.0.0.1:8848
+        namespace: c7ba173f-29e5-4c58-ae78-b102be11c4f9
+        group: alarm-server
+  redis:
+    port: 6379
+    database: 0
+    host: 127.0.0.1
+server:
+  port: 34769
+dubbo:
+  registry:
+    address: spring-cloud://localhost
+  protocols:
+    dubbo:
+      name: dubbo
+      port: 30011

@@ -1,0 +1,74 @@
+nacos:
+  server-addr: 127.0.0.1:8848
+  namespace: c7ba173f-29e5-4c58-ae78-b102be11c4f9
+  group: SEATA_GROUP
+  seata:
+    application: seata-server
+    tx-service-group: at-account-service-tx-group
+###以上定义配置中心和注册中心的公共属性
+
+dubbo:
+  scan:
+    base-packages: com.alibaba.cloud.youxia
+  protocol:
+    name: dubbo
+    port: 26734
+  registry:
+    address: nacos://127.0.0.1:8848
+spring:
+  application:
+    name: at-account-service
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    nacos:
+      discovery:
+        server-addr: ${nacos.server-addr}
+        namespace: ${nacos.namespace}
+        group: ${nacos.group}
+      config:
+        server-addr: ${nacos.server-addr}
+        namespace: ${nacos.namespace}
+        group: ${nacos.group}
+###配置注册中心和配置中心
+  redis:
+    host: 127.0.0.1
+    port: 6379
+###配置Redis
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/seata_server?characterEncoding=utf8&connectTimeout=1000&socketTimeout=3000&autoReconnect=true&useUnicode=true&useSSL=false&serverTimezone=UTC
+    username: root
+    password: 123456huxian
+###RM对应的配置数据源
+server:
+  port: 7890
+mybatis:
+  mapperLocations: classpath*:mapper/*.xml
+  type-aliases-package: com.alibaba.cloud.youxia.entity
+##配置Seata相关的信息
+seata:
+  registry:
+    type: nacos
+    nacos:
+      group: ${nacos.group}
+      application: ${nacos.seata.application}
+      namespace: ${nacos.namespace}
+      cluster: default
+      server-addr: ${nacos.server-addr}
+      username: "nacos"
+      password: "nacos"
+  tx-service-group: ${nacos.seata.tx-service-group}
+  enabled: true
+  enable-auto-data-source-proxy: false
+  application-id: at-account-service
+  config:
+    type: nacos
+    nacos:
+      group: ${nacos.group}
+      server-addr: ${nacos.server-addr}
+      namespace: ${nacos.namespace}
+      username: "nacos"
+      password: "nacos"
+
+
+

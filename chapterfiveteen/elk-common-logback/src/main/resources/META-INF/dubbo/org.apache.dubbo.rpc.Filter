@@ -1,0 +1,1 @@
+dubboLog=com.alibaba.cloud.youxia.logback.appender.dubbo.DubboLogFilter

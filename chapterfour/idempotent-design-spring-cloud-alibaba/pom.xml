@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <parent>
+        <artifactId>chapterfour</artifactId>
+        <groupId>com.alibaba.youxia</groupId>
+        <version>1.0.0.release</version>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>idempotent-design-spring-cloud-alibaba</artifactId>
+    <groupId>com.alibaba.youxia</groupId>
+    <version>1.0.0.release</version>
+    <packaging>pom</packaging>
+    <name>idempotent-design-spring-cloud-alibaba</name>
+    <description>用“Spring Cloud Alibaba”实现幂等性</description>
+
+    <modules>
+        <module>distributed-uuid-server</module>
+        <module>idempotent-design-user-api</module>
+        <module>idempotent-design-user-client</module>
+        <module>idempotent-design-user-server</module>
+    </modules>
+</project>

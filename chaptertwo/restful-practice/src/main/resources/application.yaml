@@ -1,0 +1,38 @@
+# Spring Cloud 配置
+spring:
+  application:
+    name: restful-practice
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    # Nacos注册中心的配置
+    nacos:
+      discovery:
+        # 对应本机的IP地址
+        server-addr: 127.0.0.1:8848
+        # 对应在Nacos中创建的命名空间
+        namespace: c7ba173f-29e5-4c58-ae78-b102be11c4f9
+        group: restful-practice
+server:
+  # Tomcat的端口号，也可以随机选择
+  port: 8747
+# Dubbo 配置项，对应 DubboConfigurationProperties 类
+dubbo:
+  scan:
+    base-packages: com.alibaba.cloud.youxia
+  protocol:
+    name: dubbo
+    port: 26756
+  # Dubbo 服务注册中心的配置，对应 RegistryConfig 类
+  registry:
+    # 指定 Dubbo 服务注册中心的地址
+    address: nacos://127.0.0.1:8848
+  # Spring Cloud Alibaba Dubbo 的专属配置项，对应 DubboCloudProperties 类
+  cloud:
+    # 设置订阅的应用列表，多个用 （，）号分隔，默认为（ * ）表示订阅所有应用
+    subscribed-services: "*"
+
+
+
+
+

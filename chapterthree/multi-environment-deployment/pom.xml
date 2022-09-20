@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <parent>
+        <artifactId>chapterthree</artifactId>
+        <groupId>com.alibaba.youxia</groupId>
+        <version>1.0.0.release</version>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>multi-environment-deployment</artifactId>
+    <groupId>com.alibaba.youxia</groupId>
+    <version>1.0.0.release</version>
+    <packaging>pom</packaging>
+    <name>multi-environment-deployment</name>
+    <description>用Maven和Spring Cloud Alibaba实现多环境部署</description>
+
+    <modules>
+        <module>user-client</module>
+        <module>user-server</module>
+        <module>user-distribution</module>
+    </modules>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+</project>

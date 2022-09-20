@@ -1,0 +1,25 @@
+dubbo:
+  scan:
+    base-packages: com.alibaba.cloud.youxia
+  protocol:
+    name: dubbo
+    port: 26767
+  registry:
+    address: nacos://127.0.0.1:8848
+spring:
+  application:
+    name: persistence-discovery-spring-cloud-alibaba
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        namespace: c7ba173f-29e5-4c58-ae78-b102be11c4f9
+        group: persistence-discovery-spring-cloud-alibaba
+        ephemeral: false
+server:
+  port: 7890
+
+
+

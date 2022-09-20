@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: shardingsphere-proxy-use-spring-cloud-alibaba
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        namespace: c7ba173f-29e5-4c58-ae78-b102be11c4f9
+        group: shardingsphere-proxy-use-spring-cloud-alibaba
+      config:
+        server-addr: 127.0.0.1:8848
+        namespace: c7ba173f-29e5-4c58-ae78-b102be11c4f9
+        group: shardingsphere-proxy-use-spring-cloud-alibaba
+  datasource:
+    url: jdbc:mysql://localhost:3307/sharding_db?useServerPrepStmts=true&cachePrepStmts=true
+    username: root
+    password: root
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+mybatis-plus:
+  type-aliases-package: com.alibaba.cloud.youxia.mapper
+  mapper-locations:
+    - classpath:mybatis/mapper/**/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+server:
+  port: 6789
+
+

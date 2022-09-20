@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <artifactId>chapterfiveteen</artifactId>
+        <groupId>com.alibaba.youxia</groupId>
+        <version>1.0.0.release</version>
+    </parent>
+
+    <groupId>com.alibaba.youxia</groupId>
+    <artifactId>elk-common-logback</artifactId>
+    <version>1.0.0.release</version>
+    <packaging>jar</packaging>
+
+    <name>elk-common-logback</name>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compile.source>1.8</maven.compile.source>
+        <maven.compile.target>1.8</maven.compile.target>
+        <logback.version>1.2.3</logback.version>
+    </properties>
+
+
+    <dependencies>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-core</artifactId>
+            <version>${logback.version}</version>
+<!--            <optional>true</optional>-->
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${logback.version}</version>
+<!--            <optional>true</optional>-->
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-dubbo</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.skywalking</groupId>
+            <artifactId>apm-toolkit-logback-1.x</artifactId>
+            <version>8.1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.youxia</groupId>
+            <artifactId>elk-common-log-format</artifactId>
+            <version>1.0.0.release</version>
+        </dependency>
+    </dependencies>
+    <build>
+        <directory>${basedir}/target</directory>
+        <finalName>${project.artifactId}-${project.version}</finalName>
+        <sourceDirectory>${basedir}/src/main/java</sourceDirectory>
+        <outputDirectory>${basedir}/target/classes</outputDirectory>
+        <resources>
+            <resource>
+                <directory>${basedir}/src/main/resources</directory>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${maven.compile.source}</source>
+                    <target>${maven.compile.target}</target>
+                    <encoding>UTF-8</encoding>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.17</version>
+                <configuration>
+                    <!-- true:跳过测试 -->
+                    <skipTests>true</skipTests>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.0.0</version>
+                <configuration>
+                    <excludes><!-- 过滤不需要打包到业务jar中和需要外置的资源文件 -->
+                        <exclude>bootstrap.yaml</exclude>
+                        <exclude>log4j2.xml</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+            <!-- 打包源代码插件 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <configuration>
+                    <attach>true</attach>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <!-- 增加部署信息 -->
+    <distributionManagement>
+        <!-- Releases 版本发布 -->
+        <repository>
+            <!-- ID 要与 Maven 的 settings.xml 中的 ID 一致 -->
+            <id>releases</id>
+            <name>Nexus Releases Repository</name>
+            <url>http://maven.kktv2.com:8081/nexus/content/repositories/releases</url>
+        </repository>
+
+        <!-- Snapshots 版本发布 -->
+        <snapshotRepository>
+            <!-- ID 要与 Maven 的 settings.xml 中的 ID 一致 -->
+            <id>snapshots</id>
+            <name>Nexus Snapshots Repository</name>
+            <url>http://maven.kktv2.com:8081/nexus/content/repositories/snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <!-- 设置默认的 Repository 为 Melot 的私服，而非 “http://repo1.maven.org/maven2/” -->
+    <repositories>
+        <repository>
+            <id>melot-nexus</id>
+            <name>Melot Nexus Public Repositories</name>
+            <url>http://maven.kktv2.com:8081/nexus/content/groups/public/</url>
+            <releases>
+            </releases>
+            <snapshots>
+            </snapshots>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>melot-nexus</id>
+            <name>Melot Nexus Public Repositories</name>
+            <url>http://maven.kktv2.com:8081/nexus/content/groups/public/</url>
+            <releases>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+</project>

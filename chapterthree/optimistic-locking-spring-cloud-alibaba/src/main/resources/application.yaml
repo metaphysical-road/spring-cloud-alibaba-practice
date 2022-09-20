@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: optimistic-locking-spring-cloud-alibaba
+  main:
+    allow-bean-definition-overriding: true
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/spring_cloud_alibaba_practice?characterEncoding=utf8&connectTimeout=1000&socketTimeout=3000&autoReconnect=true&useUnicode=true&useSSL=false&serverTimezone=UTC
+    username: root
+    password: 123456huxian
+    maximumPoolSize: 10
+    minimumIdle: 2
+    idleTimeout: 600000
+    connectionTimeout: 30000
+    maxLifetime: 1800000
+server:
+  port: 7823
+mybatis-plus:
+  type-aliases-package: com.alibaba.cloud.youxia.mapper
+  mapper-locations:
+    - classpath:mapper/**/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+
+

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rule>
+    <discovery>
+        <blacklist filter-value="192.167">
+            <service service-name="discovery-gray-route-good-service-server" filter-value="192.167"/>
+        </blacklist>
+    </discovery>
+</rule>

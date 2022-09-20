@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.alibaba.cloud.youxia.mapper.OrderMapper">
+    <resultMap id="BaseResultMap" type="com.alibaba.cloud.youxia.entity.OrderEntity">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="user_id" property="userId" jdbcType="BIGINT"/>
+        <result column="order_id" property="orderId" jdbcType="BIGINT"/>
+        <result column="good_id" property="goodId" jdbcType="BIGINT"/>
+        <result column="order_amount" property="orderAmount" jdbcType="DECIMAL"/>
+        <result column="order_name" property="orderName" jdbcType="VARCHAR"/>
+        <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP"/>
+        <result column="is_deleted" property="isDeleted" jdbcType="INTEGER"/>
+        <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP"/>
+        <result column="order_status" property="orderStatus" jdbcType="INTEGER"/>
+    </resultMap>
+    
+    <insert id="createOrder" parameterType="com.alibaba.cloud.youxia.entity.OrderEntity">
+        insert into at_order (id, user_id, order_id, good_id, order_amount,order_name,gmt_create,is_deleted,gmt_modified,order_status)
+        values (#{id}, #{userId}, #{orderId}, #{goodId}, #{orderAmount},#{orderName},#{gmtCreate},#{isDeleted},#{gmtModified},#{orderStatus});
+    </insert>
+    
+    <update id="updataOrderStatus" parameterType="com.alibaba.cloud.youxia.entity.OrderEntity">
+       update at_order t set t.order_status=#{orderStatus},t.gmt_modified=#{gmtModified} where t.id=#{id};
+    </update>
+</mapper>

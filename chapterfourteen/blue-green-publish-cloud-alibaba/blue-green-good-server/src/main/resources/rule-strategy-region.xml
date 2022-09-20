@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rule>
+    <strategy>
+        <region>
+            {"blue-green-gateway-server":"dev", "blue-green-trade-server":"dev", "blue-green-order-server":"dev",
+            "blue-green-good-server":"dev","blue-green-logistics-server":"dev"}
+        </region>
+    </strategy>
+</rule>

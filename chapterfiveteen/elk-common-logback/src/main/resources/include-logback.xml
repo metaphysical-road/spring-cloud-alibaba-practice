@@ -1,0 +1,104 @@
+<included>
+
+    <property name="PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level -[%X{tid}] %marker %M:%L %msg%n"/>
+    <!-- 默认的控制台日志输出，一般生产环境都是后台启动，这个没太大作用 -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+            <layout class="org.apache.skywalking.apm.toolkit.log.logback.v1.x.mdc.TraceIdMDCPatternLogbackLayout">
+                <pattern>${PATTERN}</pattern>
+            </layout>
+        </encoder>
+    </appender>
+    <!-- 根日志 -->
+    <appender name="ROOT" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/${APP_NAME}.log</file>
+        <Append>true</Append>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_PATH}/bak/${APP_NAME}.%d{yyyy-MM-dd}.log.zip</fileNamePattern>
+            <maxHistory>15</maxHistory>
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+            <layout class="org.apache.skywalking.apm.toolkit.log.logback.v1.x.mdc.TraceIdMDCPatternLogbackLayout">
+                <pattern>${PATTERN}</pattern>
+            </layout>
+        </encoder>
+    </appender>
+
+    <!--监控日志-->
+    <appender name="ALERT_MONITOR" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/alert_monitor.log</file>
+        <Append>true</Append>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_PATH}/bak/alert_monitor.%d{yyyy-MM-dd}.log.zip</fileNamePattern>
+            <maxHistory>15</maxHistory>
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+            <layout class="org.apache.skywalking.apm.toolkit.log.logback.v1.x.mdc.TraceIdMDCPatternLogbackLayout">
+                <pattern>${PATTERN}</pattern>
+            </layout>
+        </encoder>
+    </appender>
+
+    <!-- 异常监控日志 -->
+    <appender name="EXCEPTION_HANDLER" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/exception_handler.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_PATH}/bak/exception_handler.%d{yyyy-MM-dd}.log.zip</fileNamePattern>
+            <maxHistory>15</maxHistory>
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+            <layout class="org.apache.skywalking.apm.toolkit.log.logback.v1.x.mdc.TraceIdMDCPatternLogbackLayout">
+                <pattern>${PATTERN}</pattern>
+            </layout>
+        </encoder>
+    </appender>
+
+    <!-- dubbo访问日志 -->
+    <appender name="ACCESS" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/dubbo_access.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_PATH}/bak/dubbo_access.%d{yyyy-MM-dd}.log.zip</fileNamePattern>
+            <maxHistory>15</maxHistory>
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+            <layout class="org.apache.skywalking.apm.toolkit.log.logback.v1.x.mdc.TraceIdMDCPatternLogbackLayout">
+                <pattern>${PATTERN}</pattern>
+            </layout>
+        </encoder>
+    </appender>
+
+    <logger name="org.apache.dubbo.rpc.filter.ExceptionFilter" level="WARN" additivity="false">
+        <appender-ref ref="EXCEPTION_HANDLER"/>
+    </logger>
+
+    <logger name="org.apache.dubbo.rpc.filter.TimeoutFilter" value="INFO" additivity="false">
+        <appender-ref ref="EXCEPTION_HANDLER"/>
+        <appender-ref ref="ALERT_MONITOR"/>
+    </logger>
+
+    <logger name="org.apache.dubbo.common.threadpool.support.AbortPolicyWithReport" level="WARN" additivity="false">
+        <appender-ref ref="EXCEPTION_HANDLER"/>
+        <appender-ref ref="ALERT_MONITOR"/>
+    </logger>
+
+    <logger name="com.alibaba.cloud.youxia.logback.appender.dubbo.DubboLogFilter" level="INFO" additivity="false">
+        <appender-ref ref="ALERT_MONITOR"/>
+    </logger>
+
+    <logger name="EXCEPTION_LOGGER" level="INFO" additivity="false">
+        <appender-ref ref="ALERT_MONITOR"/>
+        <appender-ref ref="EXCEPTION_HANDLER"/>
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+
+    <logger name="DUBBO_ACCESS_LOGGER" level="INFO" additivity="false">
+        <appender-ref ref="ALERT_MONITOR"/>
+        <appender-ref ref="ACCESS"/>
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+
+    <logger name="ALERT_LOGGER" level="INFO" additivity="false">
+        <appender-ref ref="ALERT_MONITOR"/>
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+</included>

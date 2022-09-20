@@ -1,0 +1,44 @@
+dubbo:
+  scan:
+    base-packages: com.alibaba.cloud.youxia
+  protocol:
+    name: dubbo
+    port: 26756
+spring:
+  application:
+    name: use-es-skywalking-provider
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        namespace: c7ba173f-29e5-4c58-ae78-b102be11c4f9
+        group: use-es-skywalking-provider
+      config:
+        server-addr: 127.0.0.1:8848
+        namespace: c7ba173f-29e5-4c58-ae78-b102be11c4f9
+        group: use-es-skywalking-provider
+  redis:
+    host: 127.0.0.1
+    port: 6379
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/spring_cloud_alibaba_practice?characterEncoding=utf8&connectTimeout=1000&socketTimeout=3000&autoReconnect=true&useUnicode=true&useSSL=false&serverTimezone=UTC
+    username: root
+    password: 123456huxian
+    maximumPoolSize: 10
+    minimumIdle: 2
+    idleTimeout: 600000
+    connectionTimeout: 30000
+    maxLifetime: 1800000
+server:
+  port: 7867
+mybatis-plus:
+  type-aliases-package: com.alibaba.cloud.youxia.mapper
+  mapper-locations:
+    - classpath:mapper/**/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+
+

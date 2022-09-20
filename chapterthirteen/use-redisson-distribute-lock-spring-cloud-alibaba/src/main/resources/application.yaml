@@ -1,0 +1,50 @@
+dubbo:
+  scan:
+    base-packages: com.alibaba.cloud.youxia
+  protocol:
+    name: dubbo
+    port: 26256
+  registry:
+    address: nacos://127.0.0.1:8848
+spring:
+  application:
+    name: use-redisson-distribute-lock-spring-cloud-alibaba
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        namespace: c7ba173f-29e5-4c58-ae78-b102be11c4f9
+        group: DEFAULT_GROUP
+      config:
+        server-addr: 127.0.0.1:8848
+        namespace: c7ba173f-29e5-4c58-ae78-b102be11c4f9
+        extension-configs:
+          - data-id: use.redisson.distribute.lock.spring.cloud.alibaba.properties
+            group: use-redisson-distribute-lock-spring-cloud-alibaba
+            namespace: c7ba173f-29e5-4c58-ae78-b102be11c4f9
+            refresh: true
+    redisson:
+      config-file: classpath:redisson.yaml
+  redis:
+    host: 127.0.0.1
+    ###基于Codis的Codis ProxyIP地址
+    port: 19000
+    password: 12345678
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/spring_cloud_alibaba_practice?characterEncoding=utf8&connectTimeout=1000&socketTimeout=3000&autoReconnect=true&useUnicode=true&useSSL=false&serverTimezone=UTC
+    username: root
+    password: 123456huxian
+    maximumPoolSize: 10
+    minimumIdle: 2
+    idleTimeout: 600000
+    connectionTimeout: 30000
+    maxLifetime: 1800000
+server:
+  port: 8012
+mybatis-plus:
+  type-aliases-package: com.alibaba.cloud.youxia.mapper
+  mapper-locations:
+    - classpath:mybatis/mapper/**/*.xml
+alibaba:
+  lock:
+    type: sync

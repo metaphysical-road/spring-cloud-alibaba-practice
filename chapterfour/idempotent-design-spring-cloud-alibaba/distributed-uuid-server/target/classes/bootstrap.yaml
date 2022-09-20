@@ -1,0 +1,27 @@
+dubbo:
+  scan:
+    base-packages: com.alibaba.cloud.youxia
+  protocol:
+    name: dubbo
+    port: 26761
+spring:
+  application:
+    name: distributed-uuid-server
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        namespace: c7ba173f-29e5-4c58-ae78-b102be11c4f9
+        group: distributed-uuid-server
+      config:
+        server-addr: 127.0.0.1:8848
+        namespace: c7ba173f-29e5-4c58-ae78-b102be11c4f9
+        group: distributed-uuid-server
+        extension-configs:
+          - data-id: snowflake-config.yaml
+            group: distributed-uuid-server
+            refresh: true
+server:
+  port: 7656

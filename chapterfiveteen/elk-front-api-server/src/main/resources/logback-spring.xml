@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+scan：当此属性设置为true时，配置文件如果发生改变，将会被重新加载，默认值为true。
+scanPeriod：设置监测配置文件是否有修改的时间间隔，如果没有给出时间单位，默认单位是毫秒当scan为true时，此属性生效。默认的时间间隔为1分钟。
+debug：当此属性设置为true时，将打印出logback内部日志信息，实时查看logback运行状态。默认值为false。
+-->
+<configuration scan="true" scanPeriod="10 seconds" debug="false">
+
+    <!-- 定义日志文件名称 -->
+    <property name="APP_NAME" value="elk-front-api-server"/>
+    <!-- 定义日志的根目录 -->
+    <property name="LOG_PATH" value="logs/"/>
+    <!-- %d:时间 %level:日志级别-级别从左显示5个字符宽度 %t:线程名 %marker:标签 %F：调用logger的源文件名 %L:代码行数 %M:方法名 %msg:日志内容 %n:换行  -->
+<!--    <property name="PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%t] %marker %M:%L %msg%n"/>-->
+    <include resource="include-logback.xml"/>
+    <root level="INFO">
+        <appender-ref ref="ALERT_MONITOR"/>
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="ROOT"/>
+    </root>
+    <jmxConfigurator/>
+</configuration>

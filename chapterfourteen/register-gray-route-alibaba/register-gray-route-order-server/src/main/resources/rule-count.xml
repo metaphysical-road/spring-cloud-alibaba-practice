@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rule>
+    <register>
+        <count filter-value="2">
+            <!-- 表示下面服务，最大实例注册数为3，全局配置值2将不起作用，以局部配置值为准-->
+            <service service-name="discovery-springcloud-example-a" filter-value="3"/>
+        </count>
+    </register>
+</rule>

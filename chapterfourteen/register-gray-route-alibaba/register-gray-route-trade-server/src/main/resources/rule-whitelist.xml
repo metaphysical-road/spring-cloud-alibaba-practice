@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rule>
+    <register>
+        <whitelist filter-value="192.167">
+            <!-- 表示下面服务，只允许允许192.167为前缀的IP地址注册 -->
+            <service service-name="register-gray-route-trade-server" filter-value="192.167"/>
+        </whitelist>
+    </register>
+</rule>

@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: nacos2.0-grpc-spring-cloud-alibaba-config
+  cloud:
+    nacos:
+      config:
+        namespace: c7ba173f-29e5-4c58-ae78-b102be11c4f9
+        group: nacos2.0-grpc-spring-cloud-alibaba-config
+        password: nacos
+        enable-remote-sync-config: true
+        server-addr: 127.0.0.1:8845
+        username: nacos
+        name: nacos2.0-grpc-spring-cloud-alibaba-config
+        file-extension: properties
+        extension-configs:
+          - data-id: nacos2.0-grpc-spring-cloud-alibaba-config-test.yaml
+            group: nacos2.0-grpc-spring-cloud-alibaba-config
+            namespace: c7ba173f-29e5-4c58-ae78-b102be11c4f9
+            refresh: true
+      discovery:
+        namespace: c7ba173f-29e5-4c58-ae78-b102be11c4f9
+        group: nacos2.0-grpc-spring-cloud-alibaba-config
+        server-addr: 127.0.0.1:8845
