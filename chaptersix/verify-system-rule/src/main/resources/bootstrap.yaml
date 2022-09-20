@@ -1,0 +1,38 @@
+dubbo:
+  scan:
+    base-packages: com.alibaba.cloud.youxia
+  protocol:
+    name: dubbo
+    port: 26568
+  registry:
+    address: nacos://127.0.0.1:8848
+spring:
+  application:
+    name: verify-system-rule
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        namespace: c7ba173f-29e5-4c58-ae78-b102be11c4f9
+        group: verify-system-rule
+      config:
+        group: DEFAULT_GROUP
+        namespace: c7ba173f-29e5-4c58-ae78-b102be11c4f9
+        server-addr: 127.0.0.1:8848
+        enabled: true
+        extension-configs:
+          - data-id: verify-system-rule-ext.yaml
+            group: VERIFY-SYSTEM-RULE
+            refresh: true
+    sentinel:
+      enabled: true
+      transport:
+        dashboard: localhost:8080
+        port: 8745
+server:
+  port: 7867
+
+
+

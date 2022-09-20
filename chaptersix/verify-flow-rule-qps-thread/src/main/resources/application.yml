@@ -1,0 +1,7 @@
+spring:
+  cloud:
+    sentinel:
+      enabled: true
+      transport:
+        dashboard: 127.0.0.1:8080
+        heartbeat-interval-ms: 1000

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <parent>
+        <artifactId>spring-cloud-alibaba-practice</artifactId>
+        <groupId>com.alibaba.youxia</groupId>
+        <version>1.0.0.release</version>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>chaptersix</artifactId>
+    <groupId>com.alibaba.youxia</groupId>
+    <version>1.0.0.release</version>
+    <packaging>pom</packaging>
+    <name>chaptersix</name>
+
+    <modules>
+        <module>sentinel-core-access</module>
+        <module>sentinel-spring-cloud-alibaba</module>
+        <module>netty-spring-cloud-alibaba-push-rule</module>
+        <module>gateway-access-sentinel</module>
+        <module>verify-flow-rule-qps-thread</module>
+        <module>verify-degrade-rule</module>
+        <module>verify-system-rule</module>
+        <module>verify-persistence-rule</module>
+    </modules>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+</project>
