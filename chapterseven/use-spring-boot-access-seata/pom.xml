@@ -5,13 +5,13 @@
     <parent>
         <artifactId>chapterseven</artifactId>
         <groupId>com.alibaba.youxia</groupId>
-        <version>1.0.0.release</version>
+        <version>${revision}</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
     <artifactId>use-spring-boot-access-seata</artifactId>
     <groupId>com.alibaba.youxia</groupId>
-    <version>1.0.0.release</version>
+    <version>${revision}</version>
     <packaging>jar</packaging>
     <name>use-spring-boot-access-seata</name>
     <description>使用seata-spring-boot-starter将应用接入Seata</description>

@@ -5,13 +5,13 @@
     <parent>
         <artifactId>alarm-platform</artifactId>
         <groupId>com.alibaba.youxia</groupId>
-        <version>1.0.0.release</version>
+        <version>${revision}</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
     <artifactId>alarm-distribution</artifactId>
     <groupId>com.alibaba.youxia</groupId>
-    <version>1.0.0.release</version>
+    <version>${revision}</version>
     <packaging>pom</packaging>
     <name>alarm-distribution</name>
     <description>告警服务多环境部署</description>
@@ -29,12 +29,12 @@
                 <dependency>
                     <artifactId>alarm-server</artifactId>
                     <groupId>com.alibaba.youxia</groupId>
-                    <version>1.0.0.release</version>
+                    <version>${revision}</version>
                 </dependency>
                 <dependency>
                     <artifactId>alarm-client</artifactId>
                     <groupId>com.alibaba.youxia</groupId>
-                    <version>1.0.0.release</version>
+                    <version>${revision}</version>
                 </dependency>
             </dependencies>
 
@@ -73,12 +73,12 @@
                 <dependency>
                     <artifactId>alarm-server</artifactId>
                     <groupId>com.alibaba.youxia</groupId>
-                    <version>1.0.0.release</version>
+                    <version>${revision}</version>
                 </dependency>
                 <dependency>
                     <artifactId>alarm-client</artifactId>
                     <groupId>com.alibaba.youxia</groupId>
-                    <version>1.0.0.release</version>
+                    <version>${revision}</version>
                 </dependency>
             </dependencies>
 
@@ -117,12 +117,12 @@
                 <dependency>
                     <artifactId>alarm-server</artifactId>
                     <groupId>com.alibaba.youxia</groupId>
-                    <version>1.0.0.release</version>
+                    <version>${revision}</version>
                 </dependency>
                 <dependency>
                     <artifactId>alarm-client</artifactId>
                     <groupId>com.alibaba.youxia</groupId>
-                    <version>1.0.0.release</version>
+                    <version>${revision}</version>
                 </dependency>
             </dependencies>
 
@@ -161,12 +161,12 @@
                 <dependency>
                     <artifactId>alarm-server</artifactId>
                     <groupId>com.alibaba.youxia</groupId>
-                    <version>1.0.0.release</version>
+                    <version>${revision}</version>
                 </dependency>
                 <dependency>
                     <artifactId>alarm-client</artifactId>
                     <groupId>com.alibaba.youxia</groupId>
-                    <version>1.0.0.release</version>
+                    <version>${revision}</version>
                 </dependency>
             </dependencies>
 
@@ -205,12 +205,12 @@
                 <dependency>
                     <artifactId>alarm-server</artifactId>
                     <groupId>com.alibaba.youxia</groupId>
-                    <version>1.0.0.release</version>
+                    <version>${revision}</version>
                 </dependency>
                 <dependency>
                     <artifactId>alarm-client</artifactId>
                     <groupId>com.alibaba.youxia</groupId>
-                    <version>1.0.0.release</version>
+                    <version>${revision}</version>
                 </dependency>
             </dependencies>
 
@@ -249,12 +249,12 @@
                 <dependency>
                     <artifactId>alarm-server</artifactId>
                     <groupId>com.alibaba.youxia</groupId>
-                    <version>1.0.0.release</version>
+                    <version>${revision}</version>
                 </dependency>
                 <dependency>
                     <artifactId>alarm-client</artifactId>
                     <groupId>com.alibaba.youxia</groupId>
-                    <version>1.0.0.release</version>
+                    <version>${revision}</version>
                 </dependency>
             </dependencies>
 

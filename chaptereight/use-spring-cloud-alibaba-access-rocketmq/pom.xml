@@ -5,13 +5,13 @@
     <parent>
         <artifactId>chaptereight</artifactId>
         <groupId>com.alibaba.youxia</groupId>
-        <version>1.0.0.release</version>
+        <version>${revision}</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
     <artifactId>use-spring-cloud-alibaba-access-rocketmq</artifactId>
     <groupId>com.alibaba.youxia</groupId>
-    <version>1.0.0.release</version>
+    <version>${revision}</version>
     <packaging>pom</packaging>
     <name>use-spring-cloud-alibaba-access-rocketmq</name>
     <description>使用Spring Cloud Alibaba将应用接入RocketMQ</description>

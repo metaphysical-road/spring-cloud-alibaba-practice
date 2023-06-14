@@ -5,13 +5,13 @@
     <parent>
         <artifactId>chapterfour</artifactId>
         <groupId>com.alibaba.youxia</groupId>
-        <version>1.0.0.release</version>
+        <version>${revision}</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
     <artifactId>use-spring-cloud-alibaba-discovery</artifactId>
     <groupId>com.alibaba.youxia</groupId>
-    <version>1.0.0.release</version>
+    <version>${revision}</version>
     <packaging>jar</packaging>
     <name>use-spring-cloud-alibaba-discovery</name>
     <description>用“Spring Cloud Alibaba + Nacos”开发Dubbo应用和Restful应用</description>

@@ -5,14 +5,14 @@
     <parent>
         <artifactId>chapterfive</artifactId>
         <groupId>com.alibaba.youxia</groupId>
-        <version>1.0.0.release</version>
+        <version>${revision}</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>nacos2.0-grpc-spring-cloud-alibaba-config</artifactId>
     <groupId>com.alibaba.youxia</groupId>
-    <version>1.0.0.release</version>
+    <version>${revision}</version>
     <packaging>jar</packaging>
     <name>nacos2.0-grpc-spring-cloud-alibaba-config</name>
     <description>用”采用gRPC通信渠道的Nacos Config“实现配置数据动态更新</description>

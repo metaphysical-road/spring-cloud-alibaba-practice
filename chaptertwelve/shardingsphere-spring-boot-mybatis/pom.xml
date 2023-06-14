@@ -5,13 +5,13 @@
     <parent>
         <artifactId>chaptertwelve</artifactId>
         <groupId>com.alibaba.youxia</groupId>
-        <version>1.0.0.release</version>
+        <version>${revision}</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
     <artifactId>shardingsphere-spring-boot-mybatis</artifactId>
     <groupId>com.alibaba.youxia</groupId>
-    <version>1.0.0.release</version>
+    <version>${revision}</version>
     <packaging>jar</packaging>
     <name>shardingsphere-spring-boot-mybatis</name>
     <description>shardingsphere-spring-boot-mybatis</description>
@@ -68,7 +68,7 @@
         <dependency>
             <groupId>com.alibaba.youxia</groupId>
             <artifactId>shardingsphere-core-api</artifactId>
-            <version>1.0.0.release</version>
+            <version>${revision}</version>
         </dependency>
     </dependencies>
 </project>

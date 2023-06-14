@@ -5,13 +5,13 @@
     <parent>
         <artifactId>register-gray-route-alibaba</artifactId>
         <groupId>com.alibaba.youxia</groupId>
-        <version>1.0.0.release</version>
+        <version>${revision}</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
     <artifactId>register-gray-route-order-server</artifactId>
     <groupId>com.alibaba.youxia</groupId>
-    <version>1.0.0.release</version>
+    <version>${revision}</version>
     <packaging>jar</packaging>
     <name>register-gray-route-order-server</name>
     <description>商品微服务</description>

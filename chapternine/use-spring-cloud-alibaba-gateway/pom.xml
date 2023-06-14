@@ -5,13 +5,13 @@
     <parent>
         <artifactId>chapternine</artifactId>
         <groupId>com.alibaba.youxia</groupId>
-        <version>1.0.0.release</version>
+        <version>${revision}</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
     <artifactId>use-spring-cloud-alibaba-gateway</artifactId>
     <groupId>com.alibaba.youxia</groupId>
-    <version>1.0.0.release</version>
+    <version>${revision}</version>
     <packaging>jar</packaging>
     <name>use-spring-cloud-alibaba-gateway</name>
     <description>使用Spring Cloud Alibaba集成Spring Cloud Gateway</description>

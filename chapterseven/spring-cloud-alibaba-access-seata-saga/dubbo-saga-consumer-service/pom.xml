@@ -5,13 +5,13 @@
     <parent>
         <artifactId>spring-cloud-alibaba-access-seata-saga</artifactId>
         <groupId>com.alibaba.youxia</groupId>
-        <version>1.0.0.release</version>
+        <version>${revision}</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
     <artifactId>dubbo-saga-consumer-service</artifactId>
     <groupId>com.alibaba.youxia</groupId>
-    <version>1.0.0.release</version>
+    <version>${revision}</version>
     <packaging>jar</packaging>
     <name>dubbo-saga-consumer-service</name>
     <description>搭建Seata的Saga模式的环境，并验证Saga模式</description>
@@ -102,7 +102,7 @@
         <dependency>
             <groupId>com.alibaba.youxia</groupId>
             <artifactId>dubbo-saga-provider-service</artifactId>
-            <version>1.0.0.release</version>
+            <version>${revision}</version>
             <scope>compile</scope>
         </dependency>
         <dependency>

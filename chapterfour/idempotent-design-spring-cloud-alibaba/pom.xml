@@ -5,13 +5,13 @@
     <parent>
         <artifactId>chapterfour</artifactId>
         <groupId>com.alibaba.youxia</groupId>
-        <version>1.0.0.release</version>
+        <version>${revision}</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
     <artifactId>idempotent-design-spring-cloud-alibaba</artifactId>
     <groupId>com.alibaba.youxia</groupId>
-    <version>1.0.0.release</version>
+    <version>${revision}</version>
     <packaging>pom</packaging>
     <name>idempotent-design-spring-cloud-alibaba</name>
     <description>用“Spring Cloud Alibaba”实现幂等性</description>

@@ -5,13 +5,13 @@
     <parent>
         <artifactId>chapterthree</artifactId>
         <groupId>com.alibaba.youxia</groupId>
-        <version>1.0.0.release</version>
+        <version>${revision}</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
     <artifactId>replace-table-spring-cloud-alibaba</artifactId>
     <groupId>com.alibaba.youxia</groupId>
-    <version>1.0.0.release</version>
+    <version>${revision}</version>
     <packaging>jar</packaging>
     <name>replace-table-spring-cloud-alibaba</name>
     <description>用“Spring Cloud Alibaba”实现SQL表名动态替换</description>
@@ -138,7 +138,7 @@
         <dependency>
             <artifactId>business-common-api</artifactId>
             <groupId>com.alibaba.youxia</groupId>
-            <version>1.0.0.release</version>
+            <version>${revision}</version>
         </dependency>
 
         <dependency>

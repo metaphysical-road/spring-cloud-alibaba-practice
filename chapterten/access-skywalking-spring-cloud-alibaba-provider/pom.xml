@@ -5,13 +5,13 @@
     <parent>
         <artifactId>chapterten</artifactId>
         <groupId>com.alibaba.youxia</groupId>
-        <version>1.0.0.release</version>
+        <version>${revision}</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
     <artifactId>access-skywalking-spring-cloud-alibaba-provider</artifactId>
     <groupId>com.alibaba.youxia</groupId>
-    <version>1.0.0.release</version>
+    <version>${revision}</version>
     <packaging>jar</packaging>
     <name>access-skywalking-spring-cloud-alibaba-provider</name>
     <description>将基于Spring Cloud Alibaba的服务提供者，接入Skywalking</description>

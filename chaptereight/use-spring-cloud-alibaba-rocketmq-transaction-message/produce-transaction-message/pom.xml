@@ -5,12 +5,12 @@
     <parent>
         <artifactId>use-spring-cloud-alibaba-rocketmq-transaction-message</artifactId>
         <groupId>com.alibaba.youxia</groupId>
-        <version>1.0.0.release</version>
+        <version>${revision}</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>produce-transaction-message</artifactId>
     <groupId>com.alibaba.youxia</groupId>
-    <version>1.0.0.release</version>
+    <version>${revision}</version>
     <packaging>jar</packaging>
     <name>produce-transaction-message</name>
     <description>生产事务消息</description>

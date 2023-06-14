@@ -5,13 +5,13 @@
     <parent>
         <artifactId>chapterten</artifactId>
         <groupId>com.alibaba.youxia</groupId>
-        <version>1.0.0.release</version>
+        <version>${revision}</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
     <artifactId>use-es-skywalking-provider</artifactId>
     <groupId>com.alibaba.youxia</groupId>
-    <version>1.0.0.release</version>
+    <version>${revision}</version>
     <packaging>jar</packaging>
     <name>use-es-skywalking-provider</name>
     <description>用es作为存储数据源</description>

@@ -5,13 +5,13 @@
     <parent>
         <artifactId>spring-cloud-alibaba-discovery-problem</artifactId>
         <groupId>com.alibaba.youxia</groupId>
-        <version>1.0.0.release</version>
+        <version>${revision}</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
     <artifactId>spring-cloud-alibaba-discovery-problem-consumer</artifactId>
     <groupId>com.alibaba.youxia</groupId>
-    <version>1.0.0.release</version>
+    <version>${revision}</version>
     <packaging>jar</packaging>
     <name>spring-cloud-alibaba-discovery-problem-consumer</name>
     <description>dubbo服务消费者</description>
@@ -70,7 +70,7 @@
         <dependency>
             <groupId>com.alibaba.youxia</groupId>
             <artifactId>dubbo-common-api</artifactId>
-            <version>1.0.0.release</version>
+            <version>${revision}</version>
         </dependency>
 
         <dependency>

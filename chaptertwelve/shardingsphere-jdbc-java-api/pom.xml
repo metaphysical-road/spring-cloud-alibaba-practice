@@ -5,13 +5,13 @@
     <parent>
         <artifactId>chaptertwelve</artifactId>
         <groupId>com.alibaba.youxia</groupId>
-        <version>1.0.0.release</version>
+        <version>${revision}</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
     <artifactId>shardingsphere-jdbc-java-api</artifactId>
     <groupId>com.alibaba.youxia</groupId>
-    <version>1.0.0.release</version>
+    <version>${revision}</version>
     <packaging>jar</packaging>
     <name>shardingsphere-jdbc-java-api</name>
     <description>使用Java API接入shardingsphere jdbc</description>
@@ -53,7 +53,7 @@
         <dependency>
             <groupId>com.alibaba.youxia</groupId>
             <artifactId>dubbo-common-api</artifactId>
-            <version>1.0.0.release</version>
+            <version>${revision}</version>
         </dependency>
 
         <dependency>

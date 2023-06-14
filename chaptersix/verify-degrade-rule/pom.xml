@@ -5,14 +5,14 @@
     <parent>
         <artifactId>chaptersix</artifactId>
         <groupId>com.alibaba.youxia</groupId>
-        <version>1.0.0.release</version>
+        <version>${revision}</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>verify-degrade-rule</artifactId>
     <groupId>com.alibaba.youxia</groupId>
-    <version>1.0.0.release</version>
+    <version>${revision}</version>
     <packaging>jar</packaging>
     <name>verify-degrade-rule</name>
 
@@ -87,7 +87,7 @@
         <dependency>
             <groupId>com.alibaba.youxia</groupId>
             <artifactId>dubbo-common-api</artifactId>
-            <version>1.0.0.release</version>
+            <version>${revision}</version>
             <scope>compile</scope>
         </dependency>
 
@@ -111,7 +111,7 @@
         <dependency>
             <groupId>com.alibaba.youxia</groupId>
             <artifactId>dubbo-common-api</artifactId>
-            <version>1.0.0.release</version>
+            <version>${revision}</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>

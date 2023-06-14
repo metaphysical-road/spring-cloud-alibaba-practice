@@ -5,13 +5,13 @@
     <parent>
         <artifactId>chapterthirteen</artifactId>
         <groupId>com.alibaba.youxia</groupId>
-        <version>1.0.0.release</version>
+        <version>${revision}</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
     <artifactId>use-redisson-distribute-lock-spring-cloud-alibaba</artifactId>
     <groupId>com.alibaba.youxia</groupId>
-    <version>1.0.0.release</version>
+    <version>${revision}</version>
     <packaging>jar</packaging>
     <name>use-redisson-distribute-lock-spring-cloud-alibaba</name>
     <description>使用redisson-spring-boot-starter将Spring Cloud ALibaba应用接入到Redis集群中，并实现分布式锁</description>

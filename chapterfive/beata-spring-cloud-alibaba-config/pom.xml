@@ -5,14 +5,14 @@
     <parent>
         <artifactId>chapterfive</artifactId>
         <groupId>com.alibaba.youxia</groupId>
-        <version>1.0.0.release</version>
+        <version>${revision}</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>beata-spring-cloud-alibaba-config</artifactId>
     <groupId>com.alibaba.youxia</groupId>
-    <version>1.0.0.release</version>
+    <version>${revision}</version>
     <packaging>jar</packaging>
     <name>beata-spring-cloud-alibaba-config</name>
     <description>用灰度配置发布验证配置数据的持久化</description>

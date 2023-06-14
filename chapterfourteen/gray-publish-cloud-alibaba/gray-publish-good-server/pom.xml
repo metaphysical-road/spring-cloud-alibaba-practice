@@ -5,13 +5,13 @@
     <parent>
         <artifactId>gray-publish-cloud-alibaba</artifactId>
         <groupId>com.alibaba.youxia</groupId>
-        <version>1.0.0.release</version>
+        <version>${revision}</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
     <artifactId>gray-publish-good-server</artifactId>
     <groupId>com.alibaba.youxia</groupId>
-    <version>1.0.0.release</version>
+    <version>${revision}</version>
     <packaging>jar</packaging>
     <name>gray-publish-good-server</name>
     <description>灰度商品服务</description>

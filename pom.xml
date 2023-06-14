@@ -7,7 +7,7 @@
     <artifactId>spring-cloud-alibaba-practice</artifactId>
     <groupId>com.alibaba.youxia</groupId>
     <packaging>pom</packaging>
-    <version>1.0.0.release</version>
+    <version>${revision}</version>
     <name>Spring Cloud Alibaba practice</name>
     <description>Spring Cloud Alibaba 微服务实战派（上下册）</description>
 
@@ -34,6 +34,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <revision>1.0.0.release</revision>
         <maven-deploy-plugin.version>2.8.2</maven-deploy-plugin.version>
         <maven-spring-boot-plugin.version>2.3.12.RELEASE</maven-spring-boot-plugin.version>
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -192,7 +193,7 @@
             <dependency>
                 <groupId>com.alibaba.youxia</groupId>
                 <artifactId>dubbo-common-api</artifactId>
-                <version>1.0.0.release</version>
+                <version>${revision}</version>
             </dependency>
 
             <dependency>
@@ -216,13 +217,13 @@
             <dependency>
                 <artifactId>idempotent-design-user-api</artifactId>
                 <groupId>com.alibaba.youxia</groupId>
-                <version>1.0.0.release</version>
+                <version>${revision}</version>
             </dependency>
 
             <dependency>
                 <artifactId>distributed-uuid-server</artifactId>
                 <groupId>com.alibaba.youxia</groupId>
-                <version>1.0.0.release</version>
+                <version>${revision}</version>
             </dependency>
 
             <dependency>
@@ -264,7 +265,7 @@
             <dependency>
                 <artifactId>business-common-api</artifactId>
                 <groupId>com.alibaba.youxia</groupId>
-                <version>1.0.0.release</version>
+                <version>${revision}</version>
             </dependency>
 
             <dependency>

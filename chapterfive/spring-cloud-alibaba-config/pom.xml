@@ -5,14 +5,14 @@
     <parent>
         <artifactId>chapterfive</artifactId>
         <groupId>com.alibaba.youxia</groupId>
-        <version>1.0.0.release</version>
+        <version>${revision}</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>spring-cloud-alibaba-config</artifactId>
     <groupId>com.alibaba.youxia</groupId>
-    <version>1.0.0.release</version>
+    <version>${revision}</version>
     <packaging>jar</packaging>
     <name>spring-cloud-alibaba-config</name>
     <description>使用Spring Cloud Alibaba Config接入 Nacos Config</description>

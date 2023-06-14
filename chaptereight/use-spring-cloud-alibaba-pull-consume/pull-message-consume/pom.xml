@@ -5,13 +5,13 @@
     <parent>
         <artifactId>use-spring-cloud-alibaba-pull-consume</artifactId>
         <groupId>com.alibaba.youxia</groupId>
-        <version>1.0.0.release</version>
+        <version>${revision}</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
     <artifactId>pull-message-consume</artifactId>
     <groupId>com.alibaba.youxia</groupId>
-    <version>1.0.0.release</version>
+    <version>${revision}</version>
     <packaging>jar</packaging>
     <name>pull-message-consume</name>
     <description>使用Spring Cloud Alibaba将应用接入RocketMQ生产消息</description>

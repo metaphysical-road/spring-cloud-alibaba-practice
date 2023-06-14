@@ -7,12 +7,12 @@
     <parent>
         <artifactId>chapterfiveteen</artifactId>
         <groupId>com.alibaba.youxia</groupId>
-        <version>1.0.0.release</version>
+        <version>${revision}</version>
     </parent>
 
     <groupId>com.alibaba.youxia</groupId>
     <artifactId>elk-common-logback</artifactId>
-    <version>1.0.0.release</version>
+    <version>${revision}</version>
     <packaging>jar</packaging>
 
     <name>elk-common-logback</name>
@@ -50,7 +50,7 @@
         <dependency>
             <groupId>com.alibaba.youxia</groupId>
             <artifactId>elk-common-log-format</artifactId>
-            <version>1.0.0.release</version>
+            <version>${revision}</version>
         </dependency>
     </dependencies>
     <build>
