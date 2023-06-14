@@ -114,48 +114,4 @@
             </plugin>
         </plugins>
     </build>
-
-    <!-- 增加部署信息 -->
-    <distributionManagement>
-        <!-- Releases 版本发布 -->
-        <repository>
-            <!-- ID 要与 Maven 的 settings.xml 中的 ID 一致 -->
-            <id>releases</id>
-            <name>Nexus Releases Repository</name>
-            <url>http://maven.kktv2.com:8081/nexus/content/repositories/releases</url>
-        </repository>
-
-        <!-- Snapshots 版本发布 -->
-        <snapshotRepository>
-            <!-- ID 要与 Maven 的 settings.xml 中的 ID 一致 -->
-            <id>snapshots</id>
-            <name>Nexus Snapshots Repository</name>
-            <url>http://maven.kktv2.com:8081/nexus/content/repositories/snapshots</url>
-        </snapshotRepository>
-    </distributionManagement>
-
-    <!-- 设置默认的 Repository 为 Melot 的私服，而非 “http://repo1.maven.org/maven2/” -->
-    <repositories>
-        <repository>
-            <id>melot-nexus</id>
-            <name>Melot Nexus Public Repositories</name>
-            <url>http://maven.kktv2.com:8081/nexus/content/groups/public/</url>
-            <releases>
-            </releases>
-            <snapshots>
-            </snapshots>
-        </repository>
-    </repositories>
-    <pluginRepositories>
-        <pluginRepository>
-            <id>melot-nexus</id>
-            <name>Melot Nexus Public Repositories</name>
-            <url>http://maven.kktv2.com:8081/nexus/content/groups/public/</url>
-            <releases>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </pluginRepository>
-    </pluginRepositories>
 </project>
