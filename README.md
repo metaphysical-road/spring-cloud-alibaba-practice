@@ -6,6 +6,7 @@
 (1)查看JDK版本
 
 ![jdk](jdk.png)
+
 (2)查看Maven版本
 
 ![mavenVersion](mavenVersion.png)
@@ -31,7 +32,9 @@ mvn install:install-file -DgroupId=com.dingtalk.open -DartifactId=taobao-sdk-jav
 mvn clean install -Dmaven.test.skip=true
 ```
 ![maven](maven.png)
+
 (2) 也可以使用IDEA去Root工程下面直接打包
+
 ![打包](install.png)
 ### 4. 执行SQL语句（数据库类型为MySQL）
     直接执行spring-cloud-alibaba-practice/spring_cloud_alibaba_practice.sql语句
