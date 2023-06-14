@@ -2,7 +2,7 @@
 
 ------
 
-### 1. 从百度网盘下载源码（后面会开放到gitee或者github）
+### 1. 下载tag分支代码，本源码支持JDK版本为1.8
 
 ### 2. 源码编译帮助
 
@@ -15,7 +15,7 @@ mvn install:install-file -DgroupId=com.dingtalk.open -DartifactId=taobao-sdk-jav
 
 ![帮助](help.png)
 
-### 3. 使用Maven打包命令，重新编译源码
+### 3. 切换到根目录spring-cloud-alibaba-practice 使用Maven打包命令，重新编译源码
 
 源码已经去掉了target目录下的jar包，方便大家下载
 
