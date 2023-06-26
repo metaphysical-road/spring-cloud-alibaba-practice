@@ -21,6 +21,9 @@ public class UseSpringBootConsumeConfig {
         executorService.submit(new ConsumeMessage());
     }
 
+    /**
+     * 第二种消费消息的模式：RocketMQTemplate模式
+     */
     class ConsumeMessage implements Runnable {
         @Override
         public void run() {

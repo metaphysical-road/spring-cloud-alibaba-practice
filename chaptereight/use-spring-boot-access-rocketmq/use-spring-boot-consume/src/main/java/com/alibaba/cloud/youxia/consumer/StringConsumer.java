@@ -27,6 +27,11 @@ import org.springframework.stereotype.Service;
 @Service
 @RocketMQMessageListener(topic = "${rocketmq.consumer.topic}", consumerGroup = "use-spring-boot-access-rocketmq")
 public class StringConsumer implements RocketMQListener<String> {
+
+    /**
+     * 第一种消费消息模式：监听器自动消费消息
+     * @param message
+     */
     @Override
     public void onMessage(String message) {
         System.out.printf("------- StringConsumer received: %s \n", message);
