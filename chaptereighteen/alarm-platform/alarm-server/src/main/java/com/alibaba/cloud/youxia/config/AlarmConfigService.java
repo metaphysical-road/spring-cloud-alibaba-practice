@@ -13,7 +13,7 @@ import java.util.List;
  * @author huxian
  */
 @Configuration
-@Data
+//@Data
 public class AlarmConfigService {
     @Resource
     private AlarmConfig alarmConfig;

@@ -9,7 +9,7 @@ import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 import java.net.URLEncoder;
 
-@Slf4j
+//@Slf4j
 public final class DingDingUtils {
     public static DingTalkClient getClient(final String secret,final String webHook) {
         DingTalkClient client = null;
@@ -23,7 +23,7 @@ public final class DingDingUtils {
                     .encode(new String(Base64.encodeBase64(signData)), "UTF-8");
             client = new DefaultDingTalkClient(webHook + sign);
         } catch (Exception e) {
-            log.error("fail to get ding talk client", e);
+            System.out.println("fail to get ding talk client"+e.getMessage());
         }
         return client;
     }

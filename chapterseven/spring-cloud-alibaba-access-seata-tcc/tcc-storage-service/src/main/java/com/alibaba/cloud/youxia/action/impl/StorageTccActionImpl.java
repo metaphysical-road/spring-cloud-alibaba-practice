@@ -16,7 +16,7 @@ import javax.annotation.Resource;
  * @date: 2021/2/14 11:18 上午
  * @author: kerry
  */
-@Slf4j
+//@Slf4j
 @Component
 public class StorageTccActionImpl implements StorageTccAction {
     @Resource
@@ -36,7 +36,7 @@ public class StorageTccActionImpl implements StorageTccAction {
     @Transactional(rollbackFor = Exception.class)
     @Override
     public boolean prepareDecreaseStorage(BusinessActionContext businessActionContext, Long productId, Integer count) {
-        log.info("减少商品库存，第一阶段，锁定减少的库存量，productId="+productId+"， count="+count);
+        System.out.println("减少商品库存，第一阶段，锁定减少的库存量，productId="+productId+"， count="+count);
         StorageDO storage = storageMapper.findOneByProductId(productId);
         if (storage.getResidue()-count<0) {
             throw new RuntimeException("库存不足");
@@ -61,7 +61,7 @@ public class StorageTccActionImpl implements StorageTccAction {
     public boolean commit(BusinessActionContext businessActionContext) {
         long productId = Long.parseLong(businessActionContext.getActionContext("productId").toString());
         int count = Integer.parseInt(businessActionContext.getActionContext("count").toString());
-        log.info("减少商品库存，第二阶段提交，productId="+productId+"， count="+count);
+        System.out.println("减少商品库存，第二阶段提交，productId="+productId+"， count="+count);
         //防止重复提交
         if (ResultHolder.getResult(getClass(), businessActionContext.getXid()) == null) {
             return true;
@@ -83,7 +83,7 @@ public class StorageTccActionImpl implements StorageTccAction {
     public boolean rollback(BusinessActionContext businessActionContext) {
         long productId = Long.parseLong(businessActionContext.getActionContext("productId").toString());
         int count = Integer.parseInt(businessActionContext.getActionContext("count").toString());
-        log.info("减少商品库存，第二阶段，回滚，productId="+productId+"， count="+count);
+        System.out.println("减少商品库存，第二阶段，回滚，productId="+productId+"， count="+count);
         //防止重复回滚
         if (ResultHolder.getResult(getClass(), businessActionContext.getXid()) == null) {
             return true;

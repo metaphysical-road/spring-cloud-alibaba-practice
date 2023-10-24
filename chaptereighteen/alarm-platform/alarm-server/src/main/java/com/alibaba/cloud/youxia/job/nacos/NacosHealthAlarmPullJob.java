@@ -31,7 +31,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 @Component
 @RefreshScope
-@Slf4j
+//@Slf4j
 public class NacosHealthAlarmPullJob implements SimpleJob {
     @Autowired
     NacosAlarmConfig nacosAlarmConfig;
@@ -71,7 +71,7 @@ public class NacosHealthAlarmPullJob implements SimpleJob {
                                 instanceNameBuilder.substring(0,instanceNameBuilder.length()-1) : "", SERVICE_BAD, new Date());
                         alarmMessageList.add(nacosAlarmMessage);
                         missService.add(serviceName);
-                        log.info("service miss,{}", nacosAlarmMessage.toString());
+                        System.out.println("service miss,{}"+nacosAlarmMessage.toString());
                     }
                 }
             }
@@ -89,7 +89,7 @@ public class NacosHealthAlarmPullJob implements SimpleJob {
                         serviceName, instanceNameBuilder.length() > 0 ? instanceNameBuilder.substring(0,instanceNameBuilder.length()-1) : "",
                             INSTANCE_NULL, new Date());
                     alarmMessageList.add(nacosAlarmMessage);
-                    log.info("Instance isEmpty,{}", nacosAlarmMessage.toString());
+                    System.out.println("Instance isEmpty,{}"+nacosAlarmMessage.toString());
                 } else {
                     for (Object ip : ips) {
                         if (((String) ip).contains("false")) {
@@ -97,7 +97,7 @@ public class NacosHealthAlarmPullJob implements SimpleJob {
                                 nacosAlarmConfig.getNacosNameSpaceId(), serviceName, (String) ip, INSTANCE_BAD,
                                 new Date());
                             alarmMessageList.add(nacosAlarmMessage);
-                            log.info("Instance health false,{}", nacosAlarmMessage.toString());
+                            System.out.println("Instance health false,{}"+nacosAlarmMessage.toString());
                         }
                     }
                     List<String> instances = NacosAlarmService.instanceMap.get(serviceName);
@@ -113,7 +113,7 @@ public class NacosHealthAlarmPullJob implements SimpleJob {
                                 nacosAlarmConfig.getNacosNameSpaceId(), serviceName, instance, INSTANCE_BAD,
                                 new Date());
                             alarmMessageList.add(nacosAlarmMessage);
-                            log.info("Instance miss,{}", nacosAlarmMessage.toString());
+                            System.out.println("Instance miss,{}"+nacosAlarmMessage.toString());
                         }
                     }
                 }
@@ -121,7 +121,7 @@ public class NacosHealthAlarmPullJob implements SimpleJob {
             removeDuplicatedAlarm(alarmMessageList);
             sendAlarm(alarmMessageList);
         } catch (Exception e) {
-            log.error("Nacos 告警失败", e);
+            System.out.println("Nacos 告警失败"+e.getMessage());
         }
     }
 
@@ -135,7 +135,7 @@ public class NacosHealthAlarmPullJob implements SimpleJob {
             if (num != -1) {
                 if (alarmMessge.getTime().getTime() - cacheAlarmMessageList.get(num).getTime().getTime() < 1000 * 30) {
                     alarmMessageIterator.remove();
-                    log.info("nacos告警发送太频繁： {}",alarmMessge.toString());
+                    System.out.println("nacos告警发送太频繁： {}"+alarmMessge.toString());
                 } else {
                     cacheAlarmMessageList.set(num, alarmMessge);
                 }
@@ -186,7 +186,7 @@ public class NacosHealthAlarmPullJob implements SimpleJob {
         String webHook = alarmConfig.getWebhook();
         DingTalkClient client = DingDingUtils.getClient(secret,webHook);
         OapiRobotSendResponse response = client.execute(markDownRequest);
-        log.info("execute:{}" + response.toString());
+        System.out.println("execute:{}" + response.toString());
         OapiRobotSendRequest request = new OapiRobotSendRequest();
         request.setMsgtype("text");
         OapiRobotSendRequest.Text text = new OapiRobotSendRequest.Text();
@@ -220,7 +220,7 @@ public class NacosHealthAlarmPullJob implements SimpleJob {
                 oldServices.add(serviceName);
                 List<String> instances = nacosAlarmService.selectInstances(serviceName);
                 oldInstanceMap.put(serviceName, instances);
-                log.info("新增服务：{}", serviceName);
+                System.out.println("新增服务：{}"+serviceName);
                 newInstanceMap.put(serviceName, instances);
             } else {
                 List<String> oldInstances = oldInstanceMap.get(serviceName);
@@ -229,7 +229,7 @@ public class NacosHealthAlarmPullJob implements SimpleJob {
                     for (String instance : newInstances) {
                         if (!oldInstances.contains(instance)) {
                             oldInstances.add(instance);
-                            log.info("新增实例 服务：{},实例：{}", serviceName, instance);
+                            System.out.println("新增实例 服务：{},实例：{}"+serviceName+"-"+instance);
                         }
                     }
                 }

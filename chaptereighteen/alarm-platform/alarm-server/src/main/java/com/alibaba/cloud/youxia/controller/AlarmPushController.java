@@ -22,7 +22,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 @RestController
 @RequestMapping(value = "/alarm")
-@Slf4j
+//@Slf4j
 public class AlarmPushController {
     @Autowired
     private AlarmConfigService alarmConfigService;
@@ -34,17 +34,17 @@ public class AlarmPushController {
     @LoadBalanced
     @RequestMapping(value = "/alarmPushData", method = RequestMethod.POST)
     public void pushAlarmDingDingMessage(@RequestBody List<AlarmMessageDTO> alarmMessageList, HttpServletRequest httpServletRequest) {
-        log.info("alarmMessage:{}", alarmMessageList.toString());
+        System.out.println("alarmMessage:{}"+alarmMessageList.toString());
         if (!alarmConfig.getGlobalSwitch()) {
             return;
         }
         //获取发出请求的机器IP
         String remoteAddr = httpServletRequest.getRemoteAddr();
-        log.info("remoteAddr={}", remoteAddr);
+        System.out.println("remoteAddr={}"+remoteAddr);
         //获取IP所属平台
         String platform = alarmConfigService.getPlatformByIp(remoteAddr);
         if (platform.length() == 0) {
-            log.info("no config in nacos, remoteAddr={}", remoteAddr);
+            System.out.println("no config in nacos, remoteAddr={}"+remoteAddr);
             return;
         }
         try {
@@ -94,7 +94,7 @@ public class AlarmPushController {
             String webHook = alarmConfig.getWebhook();
             DingTalkClient client = DingDingUtils.getClient(secret,webHook);
             OapiRobotSendResponse response = client.execute(markDownRequest);
-            log.info("execute:{}" + response.toString());
+            System.out.println("execute:{}" + response.toString());
             //组成负责人信息
             OapiRobotSendRequest request = new OapiRobotSendRequest();
             request.setMsgtype("text");
@@ -107,9 +107,9 @@ public class AlarmPushController {
                 request.setAt(at);
             }
             OapiRobotSendResponse testResponse = client.execute(request);
-            log.info("execute:{}" + testResponse.toString());
+            System.out.println("execute:{}" + testResponse.toString());
         } catch (Exception e) {
-            log.error("alarmError", e);
+            System.out.println("alarmError"+e.getMessage());
         }
     }
 }

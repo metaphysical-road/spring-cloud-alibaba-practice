@@ -6,9 +6,17 @@ import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@Data
+//@Data
 @RefreshScope
 @ConfigurationProperties(prefix = "example2-user-client")
 public class NacosConfig {
     private boolean mideng;
+
+    public boolean isMideng() {
+        return mideng;
+    }
+
+    public void setMideng(boolean mideng) {
+        this.mideng = mideng;
+    }
 }

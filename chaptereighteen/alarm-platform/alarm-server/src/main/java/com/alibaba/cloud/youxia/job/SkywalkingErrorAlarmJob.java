@@ -25,7 +25,7 @@ import org.springframework.stereotype.Component;
 import lombok.extern.slf4j.Slf4j;
 
 @Component
-@Slf4j
+//@Slf4j
 public class SkywalkingErrorAlarmJob implements SimpleJob {
     @Autowired
     private SkywalkingErrorTraceConfig skywalkingAlarmConfig;
@@ -58,7 +58,7 @@ public class SkywalkingErrorAlarmJob implements SimpleJob {
             removeDuplicatedAlarm(skywalkingAlarmMessageList);
             sendAlarm(skywalkingAlarmMessageList);
         } catch (Exception e) {
-            log.error("skywalking 告警失败。", e);
+            System.out.println("skywalking 告警失败。"+e.getMessage());
         }
     }
 
@@ -132,7 +132,7 @@ public class SkywalkingErrorAlarmJob implements SimpleJob {
             Long aLong = cacheAlarmMessageList.get(alarmMessge.getTraceId());
             if (aLong != null && System.currentTimeMillis() - aLong < 1000 * 30) {
                 alarmMessageIterator.remove();
-                log.info("skywalking 告警发送太频繁： {}", alarmMessge);
+                System.out.println("skywalking 告警发送太频繁： {}"+alarmMessge);
             } else {
                 cacheAlarmMessageList.put(alarmMessge.getTraceId(), System.currentTimeMillis());
             }
@@ -184,7 +184,7 @@ public class SkywalkingErrorAlarmJob implements SimpleJob {
                 try {
                     sendErrorMessage(markDownRequest, markdown, markDownText, client);
                 } catch (ApiException e) {
-                    log.info("skywalking 告警推送钉钉失败", e);
+                    System.out.println("skywalking 告警推送钉钉失败"+e.getMessage());
                 }
                 markDownText.delete(0, markDownText.length());
             }
@@ -196,12 +196,12 @@ public class SkywalkingErrorAlarmJob implements SimpleJob {
 
     private void sendErrorMessage(OapiRobotSendRequest markDownRequest, OapiRobotSendRequest.Markdown markdown,
         StringBuffer markDownText, DingTalkClient client) throws ApiException {
-        log.info("skywalking 告警信息{}",markDownText.toString());
+        System.out.println("skywalking 告警信息{}"+markDownText.toString());
         markdown.setText(String.valueOf(markDownText));
         markDownRequest.setMarkdown(markdown);
         OapiRobotSendResponse response = client.execute(markDownRequest);
         if (response != null && StringUtils.isNotBlank(response.getErrmsg())) {
-            log.info("发送执行结果 execute:{}" + response.getErrmsg());
+            System.out.println("发送执行结果 execute:{}" + response.getErrmsg());
         }
     }
 

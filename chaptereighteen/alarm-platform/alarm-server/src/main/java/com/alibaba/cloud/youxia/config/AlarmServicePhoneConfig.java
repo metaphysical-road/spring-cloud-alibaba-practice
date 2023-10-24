@@ -8,9 +8,17 @@ import org.springframework.context.annotation.Configuration;
 import java.util.Map;
 
 @Configuration
-@Data
+//@Data
 @RefreshScope
 @ConfigurationProperties(prefix = "alarm.service")
 public class AlarmServicePhoneConfig {
     private Map<String, String> phoneNumber;
+
+    public Map<String, String> getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(Map<String, String> phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
 }

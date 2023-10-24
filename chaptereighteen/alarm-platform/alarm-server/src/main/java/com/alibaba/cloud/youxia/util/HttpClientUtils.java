@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.net.URI;
 import java.util.Map;
 import java.util.Set;
-@Slf4j
+//@Slf4j
 public class HttpClientUtils {
 
     private static PoolingHttpClientConnectionManager connectionManager = null;
@@ -75,7 +75,7 @@ public class HttpClientUtils {
                 try {
                     response.close();
                 } catch (IOException e) {
-                    log.error("请求response资源关闭失败");
+                    System.out.println("请求response资源关闭失败");
                 }
             }
             httpGet.releaseConnection();
@@ -102,7 +102,7 @@ public class HttpClientUtils {
                 try {
                     response.close();
                 } catch (IOException e) {
-                    log.error("请求response资源关闭失败");
+                    System.out.println("请求response资源关闭失败");
                 }
             }
             httpPost.releaseConnection();

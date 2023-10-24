@@ -17,7 +17,7 @@ import java.math.BigDecimal;
  * @date: 2021/2/14 9:39 上午
  * @author: kerry
  */
-@Slf4j
+//@Slf4j
 @Component
 public class OrderTccActionImpl implements OrderTccAction {
     @Resource

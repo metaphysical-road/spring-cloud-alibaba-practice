@@ -9,22 +9,22 @@ spring:
           enabled: false
     nacos:
       discovery:
-        server-addr: 127.0.0.1:8848
+        server-addr: 127.0.0.1:8847
         namespace: c7ba173f-29e5-4c58-ae78-b102be11c4f9
         group: gateway-dynamic-route-rule
       config:
         namespace: c7ba173f-29e5-4c58-ae78-b102be11c4f9
         group: gateway-dynamic-route-rule
         enable-remote-sync-config: true
-        server-addr: 127.0.0.1:8848
+        server-addr: 127.0.0.1:8847
         file-extension: yaml
         prefix: gateway-dynamic-route-rule
   application:
     name: gateway-dynamic-route-rule
-  redis:
-    host: localhost
-    port: 6379
-    database: 0
+#  redis:
+#    host: localhost
+#    port: 6379
+#    database: 0
 logging:
   pattern:
     level: debug

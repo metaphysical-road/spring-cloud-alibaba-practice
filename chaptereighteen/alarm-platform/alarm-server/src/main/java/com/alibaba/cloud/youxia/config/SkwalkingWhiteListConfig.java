@@ -11,11 +11,19 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-@Data
+//@Data
 @Configuration
 @ConfigurationProperties(prefix = "skywalking")
-@Slf4j
+//@Slf4j
 public class SkwalkingWhiteListConfig {
+    public List<Map<String, String>> getSkywalkingWhiteLists() {
+        return skywalkingWhiteLists;
+    }
+
+    public void setSkywalkingWhiteLists(List<Map<String, String>> skywalkingWhiteLists) {
+        this.skywalkingWhiteLists = skywalkingWhiteLists;
+    }
+
     private List<Map<String, String>> skywalkingWhiteLists;
     public boolean isWhiteList(SkywalkingAlarmMessage alarmMessage){
         //alarmMessage  - map
@@ -31,7 +39,7 @@ public class SkwalkingWhiteListConfig {
         alarmMessageMap.putAll(tagMap);
         for (Map<String, String> skywalkingWhiteMap : skywalkingWhiteLists){
             if (equals(alarmMessageMap,skywalkingWhiteMap)){
-                log.info("skywalking whiteList filter{}", alarmMessage);
+                System.out.println("skywalking whiteList filter{}"+alarmMessage);
                 return true;
             }
         }

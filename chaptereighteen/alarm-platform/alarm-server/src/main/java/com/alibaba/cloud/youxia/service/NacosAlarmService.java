@@ -15,7 +15,7 @@ import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
 @Service
-@Slf4j
+//@Slf4j
 public class NacosAlarmService {
     public static List<String> serverNameList = new ArrayList<>();
     public static Map<String, List<String>> instanceMap = new ConcurrentHashMap<>();
@@ -26,13 +26,13 @@ public class NacosAlarmService {
 
     @PostConstruct
     public void getInitNacosConfig() {
-        log.info("nacos告警开始初始化");
+        System.out.println("nacos告警开始初始化");
         serverNameList = selectServices();
-        log.info("更新服务缓存，{}", serverNameList);
+        System.out.println("更新服务缓存，{}"+serverNameList);
         for (String serviceName : serverNameList) {
             List<String> instancesList = selectInstances(serviceName);
             instanceMap.put(serviceName, instancesList);
-            log.info("更新服务下的实例，服务名{}，实例{}", serviceName, instancesList);
+            System.out.println("更新服务下的实例，服务名{}，实例{}"+serviceName+"-"+instancesList);
         }
         ISINIT = true;
     }
@@ -53,7 +53,7 @@ public class NacosAlarmService {
                 serverName.add((String) next);
             }
         } catch (Exception e) {
-            log.error("获取nacos端服务列表失败。", e);
+            System.out.println("获取nacos端服务列表失败。"+e.getMessage());
         }
         return serverName;
     }
@@ -66,7 +66,7 @@ public class NacosAlarmService {
                 return handleInstance(serviceInstanceList);
             }
         } catch (Exception e) {
-            log.error("获取服务对应的实例失败，{}", serviceName, e);
+            System.out.println("获取服务对应的实例失败，{}"+"serviceName:"+serviceName+e.getMessage());
         }
         return null;
     }

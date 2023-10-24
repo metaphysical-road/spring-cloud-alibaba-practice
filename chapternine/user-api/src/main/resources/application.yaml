@@ -4,7 +4,7 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 127.0.0.1:8848
+        server-addr: 127.0.0.1:8847
         namespace: c7ba173f-29e5-4c58-ae78-b102be11c4f9
         group: gateway-dynamic-route-rule
 server:

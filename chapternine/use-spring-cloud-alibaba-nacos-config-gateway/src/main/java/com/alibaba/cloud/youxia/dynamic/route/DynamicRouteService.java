@@ -14,7 +14,7 @@ import reactor.core.publisher.Mono;
 
 import java.util.List;
 
-@Slf4j
+//@Slf4j
 @Service
 public class DynamicRouteService implements ApplicationEventPublisherAware {
     @Autowired
@@ -31,7 +31,7 @@ public class DynamicRouteService implements ApplicationEventPublisherAware {
 
     public String delete(String id) {
         try {
-            log.info("gateway delete route id {}",id);
+            System.out.println("gateway delete route id {}"+id);
             this.routeDefinitionWriter.delete(Mono.just(id)).subscribe();
             this.publisher.publishEvent(new RefreshRoutesEvent(this));
             return "delete success";
@@ -41,12 +41,12 @@ public class DynamicRouteService implements ApplicationEventPublisherAware {
     }
 
     public String updateList(List<RouteDefinition> definitions) {
-        log.info("gateway update route {}",definitions);
+        System.out.println("gateway update route {}"+definitions);
         // 删除缓存routerDefinition
         List<RouteDefinition> routeDefinitionsExits =  routeDefinitionLocator.getRouteDefinitions().buffer().blockFirst();
         if (!CollectionUtils.isEmpty(routeDefinitionsExits)) {
             routeDefinitionsExits.forEach(routeDefinition -> {
-                log.info("delete routeDefinition:{}", routeDefinition);
+                System.out.println("delete routeDefinition:{}"+routeDefinition);
                 delete(routeDefinition.getId());
             });
         }
@@ -58,7 +58,7 @@ public class DynamicRouteService implements ApplicationEventPublisherAware {
 
     public String updateById(RouteDefinition definition) {
         try {
-            log.info("gateway update route {}",definition);
+            System.out.println("gateway update route {}"+definition);
             this.routeDefinitionWriter.delete(Mono.just(definition.getId()));
         } catch (Exception e) {
             return "update fail,not find route  routeId: "+definition.getId();
@@ -73,7 +73,7 @@ public class DynamicRouteService implements ApplicationEventPublisherAware {
     }
 
     public String add(RouteDefinition definition) {
-        log.info("gateway add route {}",definition);
+        System.out.println("gateway add route {}"+definition);
         routeDefinitionWriter.save(Mono.just(definition)).subscribe();
         this.publisher.publishEvent(new RefreshRoutesEvent(this));
         return "success";

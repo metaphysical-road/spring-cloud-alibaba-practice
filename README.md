@@ -39,6 +39,14 @@ mvn clean install -Dmaven.test.skip=true
 ### 4. 执行SQL语句（数据库类型为MySQL）
     直接执行spring-cloud-alibaba-practice/spring_cloud_alibaba_practice.sql语句
     另外与Nacos Sync和 Datax Web相关的SQL也放在根目录中了
+(1) 本源码对应的MySQL的版本
+
+![mysqlVersion](mysqlVersion.png)
+
+(2) 执行完成sql语句之后。
+
+![spring_cloud_alibaba_practice](spring_cloud_alibaba_practice.png)
+
 ### 5. 说明
 
 本书是偏实战性的书籍，需要大家自己动起来，这样才能体现本书的价值，希望大家能够学习愉快。

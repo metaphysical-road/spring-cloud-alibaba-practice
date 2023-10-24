@@ -12,7 +12,7 @@ import org.apache.dubbo.config.annotation.DubboReference;
 import org.apache.dubbo.config.annotation.DubboService;
 
 @DubboService(version = "1.0.0",group = "elk-log",timeout = 3000)
-@Slf4j
+//@Slf4j
 public class FiveteenTradeServiceImpl implements FiveteenTradeService {
 
     @DubboReference(version = "1.0.0",group = "elk-log",timeout = 3000)
@@ -20,7 +20,7 @@ public class FiveteenTradeServiceImpl implements FiveteenTradeService {
 
     @Override
     public FiveteenTradeDTO buyGoodAndCreateOrder(FiveteenTradeBo fiveteenTradeBo) {
-        log.info("执行交易请求："+fiveteenTradeBo.toString());
+        System.out.println("执行交易请求："+fiveteenTradeBo.toString());
         FiveteenOrderBo fiveteenOrderBo=new FiveteenOrderBo();
         fiveteenOrderBo.setGoodId(fiveteenTradeBo.getGoodId());
         fiveteenOrderBo.setUserId(fiveteenTradeBo.getUserId());
@@ -38,7 +38,7 @@ public class FiveteenTradeServiceImpl implements FiveteenTradeService {
         result.setUserId(fiveteenOrderDTO.getUserId());
         result.setResult(fiveteenOrderDTO.getResult());
         result.setSuccess(fiveteenOrderDTO.getSuccess());
-        log.info("执行交易请求成功："+result.toString());
+        System.out.println("执行交易请求成功："+result.toString());
         return result;
     }
 }

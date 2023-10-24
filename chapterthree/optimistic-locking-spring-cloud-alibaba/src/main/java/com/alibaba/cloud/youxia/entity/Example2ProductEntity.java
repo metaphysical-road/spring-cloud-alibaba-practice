@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.Version;
-import lombok.Data;
+//import lombok.Data;
 import lombok.experimental.Accessors;
 
 import java.io.Serializable;
@@ -12,8 +12,8 @@ import java.io.Serializable;
 /**
  * ORM中的实体对象
  */
-@Data
-@Accessors(chain = true)
+//@Data
+//@Accessors(chain = true)
 @TableName(value = "example2_product")
 public class Example2ProductEntity implements Serializable {
     static final long serialVersionUID = -232434345545442L;
@@ -41,4 +41,44 @@ public class Example2ProductEntity implements Serializable {
      */
     @Version
     private Integer version;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getGoodId() {
+        return goodId;
+    }
+
+    public void setGoodId(Long goodId) {
+        this.goodId = goodId;
+    }
+
+    public String getGoodName() {
+        return goodName;
+    }
+
+    public void setGoodName(String goodName) {
+        this.goodName = goodName;
+    }
+
+    public Long getNum() {
+        return num;
+    }
+
+    public void setNum(Long num) {
+        this.num = num;
+    }
+
+    public Integer getVersion() {
+        return version;
+    }
+
+    public void setVersion(Integer version) {
+        this.version = version;
+    }
 }

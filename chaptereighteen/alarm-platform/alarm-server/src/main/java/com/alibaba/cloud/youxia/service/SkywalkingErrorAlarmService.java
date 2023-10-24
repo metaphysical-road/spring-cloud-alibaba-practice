@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 @Service
-@Slf4j
+//@Slf4j
 public class SkywalkingErrorAlarmService {
 
     public void handleMessage(List<SkywalkingAlarmMessage> skywalkingAlarmMessageList, String message) {

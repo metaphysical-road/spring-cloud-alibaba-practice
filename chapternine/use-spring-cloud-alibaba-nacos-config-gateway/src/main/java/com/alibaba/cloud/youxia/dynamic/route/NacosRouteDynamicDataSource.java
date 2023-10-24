@@ -22,7 +22,7 @@ import java.util.concurrent.Executors;
 
 @Component
 @RefreshScope
-@Slf4j
+//@Slf4j
 public class NacosRouteDynamicDataSource implements ApplicationRunner {
     @Autowired
     private NacosConfigManager nacosConfigManager;
@@ -39,22 +39,22 @@ public class NacosRouteDynamicDataSource implements ApplicationRunner {
         @Override
         public void run() {
             while (true) {
-                log.info("gateway route init...");
+                System.out.println("gateway route init...");
                 try {
                     if (null == configService) {
                         configService = nacosConfigManager.getConfigService();
                     }
                     String configInfo = configService.getConfig("gateway-dynamic-route-rule.json", "gateway-dynamic-route-rule"
                             , 4000);
-                    log.info("获取网关当前配置:\r\n{}", configInfo);
+                    System.out.println("获取网关当前配置:\r\n{}"+configInfo);
                     List<RouteDefinition> definitionList = JSON.parseArray(configInfo, RouteDefinition.class);
                     for (RouteDefinition definition : definitionList) {
-                        log.info("update route : {}", definition.toString());
+                        System.out.println("update route : {}"+definition.toString());
                         dynamicRouteService.add(definition);
                     }
                     Thread.sleep(20000);
                 } catch (Exception e) {
-                    log.error("初始化网关路由时发生错误", e);
+                    System.out.println("初始化网关路由时发生错误"+e.getMessage());
                 }
                 dynamicRouteByNacosListener("gateway-dynamic-route-rule.json", "gateway-dynamic-route-rule");
             }
@@ -66,19 +66,19 @@ public class NacosRouteDynamicDataSource implements ApplicationRunner {
             configService.addListener(dataId, group, new Listener()  {
                 @Override
                 public void receiveConfigInfo(String configInfo) {
-                    log.info("进行网关更新:\n\r{}",configInfo);
+                    System.out.println("进行网关更新:\n\r{}"+configInfo);
                     List<RouteDefinition> definitionList = JSON.parseArray(configInfo, RouteDefinition.class);
-                    log.info("update route : {}",definitionList.toString());
+                    System.out.println("update route : {}"+definitionList.toString());
                     dynamicRouteService.updateList(definitionList);
                 }
                 @Override
                 public Executor getExecutor() {
-                    log.info("getExecutor\n\r");
+                    System.out.println("getExecutor\n\r");
                     return null;
                 }
             });
         } catch (NacosException e) {
-            log.error("从nacos接收动态路由配置出错!!!",e);
+            System.out.println("从nacos接收动态路由配置出错!!!"+e.getMessage());
         }
     }
 

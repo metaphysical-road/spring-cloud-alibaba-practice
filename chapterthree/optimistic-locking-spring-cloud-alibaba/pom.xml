@@ -6,15 +6,18 @@
         <artifactId>chapterthree</artifactId>
         <groupId>com.alibaba.youxia</groupId>
         <version>${revision}</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
     <artifactId>optimistic-locking-spring-cloud-alibaba</artifactId>
-    <groupId>com.alibaba.youxia</groupId>
-    <version>${revision}</version>
     <packaging>jar</packaging>
-    <name>optimistic-locking-spring-cloud-alibaba</name>
+    <name>${project.artifactId}</name>
     <description>用“Spring Cloud Alibaba”实现乐观锁</description>
+
+    <properties>
+        <skip_maven_deploy>false</skip_maven_deploy>
+    </properties>
 
     <dependencies>
 <!--        <dependency>-->
@@ -57,6 +60,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
+            <version>1.18.24</version>
         </dependency>
 
         <dependency>
@@ -125,7 +129,7 @@
         <dependency>
             <artifactId>business-common-api</artifactId>
             <groupId>com.alibaba.youxia</groupId>
+            <version>${project.parent.version}</version>
         </dependency>
-
     </dependencies>
 </project>

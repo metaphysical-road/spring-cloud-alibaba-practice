@@ -9,7 +9,7 @@ spring:
         password: nacos
         enable-remote-sync-config: true
         ###Follower节点
-        server-addr: 192.168.0.123:8849
+        server-addr: 192.168.0.123:8847
         username: nacos
         name: soft-jraft-apache-derby-config
         file-extension: properties
@@ -22,4 +22,4 @@ spring:
         namespace: c7ba173f-29e5-4c58-ae78-b102be11c4f9
         group: soft-jraft-apache-derby-config
         ###Follower节点
-        server-addr: 192.168.0.123:8849
+        server-addr: 192.168.0.123:8847

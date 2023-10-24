@@ -5,7 +5,7 @@ import lombok.Setter;
 import lombok.ToString;
 import java.io.Serializable;
 import java.util.List;
-@ToString
+//@ToString
 public class SkyOapConfigDTO implements Serializable {
 
     private static final long serialVersionUID = -2279647623600217691L;

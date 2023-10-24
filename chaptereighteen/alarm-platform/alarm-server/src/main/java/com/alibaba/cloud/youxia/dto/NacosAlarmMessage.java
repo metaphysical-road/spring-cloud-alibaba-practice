@@ -4,11 +4,52 @@ import lombok.Data;
 import java.util.Date;
 import java.util.Objects;
 
-@Data
+//@Data
 public class NacosAlarmMessage {
 
     private String NameSpace;
     private String serviceName;
+
+    public String getNameSpace() {
+        return NameSpace;
+    }
+
+    public void setNameSpace(String nameSpace) {
+        NameSpace = nameSpace;
+    }
+
+    public String getServiceName() {
+        return serviceName;
+    }
+
+    public void setServiceName(String serviceName) {
+        this.serviceName = serviceName;
+    }
+
+    public String getIp() {
+        return ip;
+    }
+
+    public void setIp(String ip) {
+        this.ip = ip;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public Date getTime() {
+        return time;
+    }
+
+    public void setTime(Date time) {
+        this.time = time;
+    }
+
     private String ip;
     private String message;
     private Date time;

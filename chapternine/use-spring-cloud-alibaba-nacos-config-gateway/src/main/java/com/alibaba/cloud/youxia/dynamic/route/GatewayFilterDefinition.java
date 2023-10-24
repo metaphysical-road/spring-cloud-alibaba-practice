@@ -8,8 +8,24 @@ import java.util.Map;
 /**
  * 路由过滤器定义模型
  */
-@Data
+//@Data
 public class GatewayFilterDefinition {
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Map<String, String> getArgs() {
+        return args;
+    }
+
+    public void setArgs(Map<String, String> args) {
+        this.args = args;
+    }
+
     /**
      * Filter Name
      */

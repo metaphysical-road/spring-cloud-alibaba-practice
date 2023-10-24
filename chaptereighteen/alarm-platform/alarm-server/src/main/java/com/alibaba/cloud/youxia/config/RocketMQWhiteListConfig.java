@@ -9,10 +9,18 @@ import java.util.List;
 /**
  * @author huxian
  */
-@Data
+//@Data
 @RefreshScope
 @Configuration
 @ConfigurationProperties(prefix = "rocketmq")
 public class RocketMQWhiteListConfig {
+    public List<String> getRocketMQWhiteList() {
+        return rocketMQWhiteList;
+    }
+
+    public void setRocketMQWhiteList(List<String> rocketMQWhiteList) {
+        this.rocketMQWhiteList = rocketMQWhiteList;
+    }
+
     private List<String> rocketMQWhiteList;
 }

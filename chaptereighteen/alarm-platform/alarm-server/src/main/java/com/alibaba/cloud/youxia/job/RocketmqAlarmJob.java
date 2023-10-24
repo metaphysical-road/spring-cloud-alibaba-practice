@@ -25,7 +25,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import lombok.extern.slf4j.Slf4j;
 @Component
-@Slf4j
+//@Slf4j
 public class RocketmqAlarmJob implements SimpleJob {
 
     @Autowired
@@ -42,7 +42,7 @@ public class RocketmqAlarmJob implements SimpleJob {
             whiteList(topicConsumerInfo);
             sendAlarm(topicConsumerInfo);
         } catch (Exception e) {
-            log.error("RocketMQ 告警失败。", e);
+            System.out.println("RocketMQ 告警失败。"+ e.getMessage());
         }
     }
 
@@ -136,7 +136,7 @@ public class RocketmqAlarmJob implements SimpleJob {
                 try {
                     sendErrorMessage(markDownRequest, markdown, mt, client);
                 } catch (ApiException e) {
-                    log.error("RocketMQ推送钉钉失败", e);
+                    System.out.println("RocketMQ推送钉钉失败"+e.getMessage());
                 }
                 markDownText.delete(0, markDownText.length());
             }
@@ -148,12 +148,12 @@ public class RocketmqAlarmJob implements SimpleJob {
 
     private void sendErrorMessage(OapiRobotSendRequest markDownRequest, OapiRobotSendRequest.Markdown markdown,
         String markDownText, DingTalkClient client) throws ApiException {
-        log.info("RocketMq 告警信息{}",markDownText);
+        System.out.println("RocketMq 告警信息{}"+markDownText);
         markdown.setText(markDownText);
         markDownRequest.setMarkdown(markdown);
         OapiRobotSendResponse response = client.execute(markDownRequest);
         if (response != null && StringUtils.isNotBlank(response.getErrmsg())) {
-            log.info("RocketMQ推送钉钉执行结果 execute:{}" + response.getErrmsg());
+            System.out.println("RocketMQ推送钉钉执行结果 execute:{}" + response.getErrmsg());
         }
     }
 }

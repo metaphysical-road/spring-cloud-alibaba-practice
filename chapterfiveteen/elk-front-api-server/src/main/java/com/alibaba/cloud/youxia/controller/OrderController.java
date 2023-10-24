@@ -14,7 +14,7 @@ import java.math.BigDecimal;
 
 @RestController
 @RequestMapping(value = "/order")
-@Slf4j
+//@Slf4j
 public class OrderController {
     @DubboReference(version = "1.0.0",group = "elk-log",timeout = 3000)
     private FiveteenTradeService fiveteenTradeService;
@@ -31,7 +31,7 @@ public class OrderController {
             System.out.println(e.getMessage());
         }
         FiveteenTradeDTO fiveteenTradeDTO=fiveteenTradeService.buyGoodAndCreateOrder(fiveteenTradeBo);
-        log.info("API调用执行交易请求成功："+fiveteenTradeDTO.toString());
+        System.out.println("API调用执行交易请求成功："+fiveteenTradeDTO.toString());
         return fiveteenTradeDTO.toString();
     }
 }
